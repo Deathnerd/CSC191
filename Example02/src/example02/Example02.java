@@ -21,7 +21,7 @@ public class Example02 {
 		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("Enter two end points of a diagonal in 1st rectangle: ");
+		System.out.print("Enter two end points of a diagonal in 1st rectangle: ");
 		float x1 = input.nextFloat();
 		float y1 = input.nextFloat();
 		float x2 = input.nextFloat();
@@ -32,7 +32,7 @@ public class Example02 {
 		
 		Rectangle r1 = new Rectangle(pt1, pt2);
 		
-		System.out.println("Enter two end points of a diagonal in 1st rectangle: ");
+		System.out.print("Enter two end points of a diagonal in 1st rectangle: ");
 		x1 = input.nextFloat();
 		y1 = input.nextFloat();
 		x2 = input.nextFloat();
@@ -47,8 +47,27 @@ public class Example02 {
 		r2.display();
 		
 		r1.overlap(r2); //check if r1 overlaps r2
+		
+		System.out.print("Enter the center of the circle: ");
+		
+		float cx = input.nextFloat();
+		float cy = input.nextFloat();
+		System.out.print("Enter the radius of the circle: ");
+		float r = input.nextFloat();
+		
+		float dist = (cy >= 0 ? cy : -cy); //shorthand if. Distance between center and x axis: abs
+		
+		if(dist > r){
+			System.out.println("No intersection");
+		}
+		else if(dist == r){
+			System.out.printf("One intersection (%f, $f)", cx, 0);
+		}
+		else{
+			float t = (float) Math.sqrt(r * r - dist * dist);
+			System.out.printf("Two intersections: ($f, 0) and ($f, 0)", cx-t, cx+t);
+		}
 	}
-	
 }
 
 class Point{
