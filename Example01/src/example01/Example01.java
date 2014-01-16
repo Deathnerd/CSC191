@@ -46,7 +46,7 @@ public class Example01 {
 		charge = (int)(charge*100);
 		charge /= 100;
 		
-		System.out.println("Charge = "+charge);
+		System.out.printf("Charge = %.2f \n", charge);
 		
 //		if(a == b && b == c)
 //			System.out.println("All of them are the same");

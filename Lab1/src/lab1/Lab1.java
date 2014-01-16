@@ -49,7 +49,7 @@ public class Lab1 {
 			System.out.println("3rd prize: two digits match in exact order");
 			return;
 		}
-		//Fifth prize: Only 1 digits match in exact position
+		//Fifth prize: Only 1 digit matches in exact position
 		else if(ud1 == ld1 || ud2 == ld2 || ud3 == ld3){
 			System.out.println("5th prize: one digit matches in exact position");
 			return;
