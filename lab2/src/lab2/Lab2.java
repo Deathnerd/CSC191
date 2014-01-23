@@ -7,6 +7,7 @@
 package lab2;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * Course: CSC191, Spring 2014
@@ -21,10 +22,22 @@ public class Lab2 {
 	static class NumberTriangle{
 		private int height; // height of the triangle (assume it’s always less than 14) 
 		private int number = 1; //the number we're manipulating
+		int numbers[];
 
 		// Set the height with h  
 		void setHeight(int h){
 			height = h; 
+			setArray();
+		}
+		
+		 void setArray(){
+			numbers = new int[height];
+			
+			for(int i = 0; i < height; i++){
+				numbers[i] = number;
+				number *= 2;
+			}
+			
 		}
 
 		// Draw the triangle 
@@ -32,13 +45,26 @@ public class Lab2 {
 			if(height <= 0) //check for no height
 				return;
 			
-			int count = 1;
-			int multiplier = 0;
+			int num = (int) Math.pow(2, height-1);
+			int row = 1;
+			int temp = num;
 			
-			while(count <= height){
-				System.out.print(number+" ");
+			while(row <= height){ //print half rows up to the 1's row
+				for(int i = 1; i <= row; i++)
+					System.out.print(temp+" ");
+				System.out.println();
+				row++;
+				temp /= 2;
 			}
 			
+			temp = 1;
+			while(row <= (height*2-1)) { //print the other half
+				temp *= 2;
+				for(int i = 1; i<= (height*2-row); i++)
+					System.out.print(temp+ " ");
+				row++;
+				System.out.println();
+			}
 		}
 
 		// Rotate the triangle 90 degrees clockwise and draw it 
@@ -73,9 +99,12 @@ public class Lab2 {
 			if(height <= 0) //check for no height
 				return;
 			
-			int num = (int) Math.pow(2, height-1);
-			int row = 1;
-			int temp = num;
+			for(int i = 0; i <= height; i++){ //rows loop
+				//loop through the array backwards, and then forwards to print out the first row
+				//do the same except you begin at the 2nd to last spot, and stop at the beginning
+				//continue until you're left with the beginning
+				System.out.printf("%-2d", numbers[i]);
+			}
 		}
 
 		// Rotate the triangle 270 degrees clockwise and draw it 
@@ -96,6 +125,8 @@ public class Lab2 {
 		int height = in.nextInt();
 		
 		triangle.setHeight(height);
-		triangle.rotateTriangle90();
+		triangle.rotateTriangle180();
+//		triangle.rotateTriangle90();
+//		triangle.printTriangle();
 	}
 }
