@@ -46,16 +46,9 @@ public class Lab2 {
 			if(height <= 0) //check for no height
 				return;
 			
-			double num = Math.pow(2, height-1);
+			int num = (int) Math.pow(2, height-1);
 			int row = 1;
-			double temp = num;
-			
-			System.out.println("Num = "+num);
-			
-//			while(row <= (height*2-1)){ //couunt through all the rows
-//				
-//				row++;
-//			}
+			int temp = num;
 			
 			while(row <= height){ //print half rows up to the 1's row
 				for(int i = 1; i <= row; i++)
@@ -64,7 +57,8 @@ public class Lab2 {
 				row++;
 				temp /= 2;
 			}
-			temp *= 2;
+			
+			temp = 1;
 			while(row <= (height*2-1)) { //print the other half
 				temp *= 2;
 				for(int i = 1; i<= (height*2-row); i++)
@@ -78,6 +72,8 @@ public class Lab2 {
 		public void rotateTriangle180(){
 			if(height <= 0) //check for no height
 				return;
+			
+			double num = Math.pow(2, height-1);
 		}
 
 		// Rotate the triangle 270 degrees clockwise and draw it 
