@@ -73,7 +73,9 @@ public class Lab2 {
 			if(height <= 0) //check for no height
 				return;
 			
-			double num = Math.pow(2, height-1);
+			int num = (int) Math.pow(2, height-1);
+			int row = 1;
+			int temp = num;
 		}
 
 		// Rotate the triangle 270 degrees clockwise and draw it 
