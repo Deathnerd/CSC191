@@ -143,8 +143,11 @@ public class Lab2 {
 		
 		triangle.setHeight(height);
 		triangle.printTriangle(); //done
+		System.out.println();
 		triangle.rotateTriangle90(); // done
+		System.out.println();
 		triangle.rotateTriangle180(); //done
+		System.out.println();
 		triangle.rotateTriangle270(); // done
 	}
 }
