@@ -12,13 +12,13 @@ package example03;
  */
 
 import java.util.Scanner;
-public class Example03 {
-    public static void main(String[] args) {
+public class Example03{
+    public static void main(String[] args){
         int option;
         Scanner input = new Scanner(System.in);
         Circle c = new Circle();
         
-        do {
+        do{
             System.out.println("\nSelect from:");
             System.out.println("1. Enter circle:");
             System.out.println("2. Display circle info.:");
@@ -28,7 +28,7 @@ public class Example03 {
             
             option = input.nextInt();
 
-            switch (option) {
+            switch (option){
                 case 1:
                     /*  for public
                     System.out.print("Enter the center of a circle: ");
@@ -64,39 +64,39 @@ public class Example03 {
     } 
 }
 
-class Point {
+class Point{
 	//public float x, y; for public only need the variables
         private float x, y;
         
-        void setX(float Xcord) {
+        void setX(float Xcord){
             x = Xcord;
         }
         
-        void setY(float Ycord) {
+        void setY(float Ycord){
             y = Ycord;
         }
         
-        float getX() {
+        float getX(){
             return x;
         }
-        float getY() {
+        float getY(){
             return y;
         }
 }
 
-class Circle {
+class Circle{
 	public final float PI = 3.14159f;
 	public Point center;
 	public float r;
         
-        Circle() {
+        Circle(){
             center = new Point();
             r = 0;
         }
-	float get_area() {
+	float get_area(){
 		return (PI * r * r);
 	}
-	float get_circum() {
+	float get_circum(){
 		return (2.0f * PI * r);
 	}
 }

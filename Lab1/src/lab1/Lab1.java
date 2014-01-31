@@ -1,14 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package lab1;
-
-import java.util.Scanner;
-import java.util.Random;
-
 /**
  * Course: CSC191, Spring 2014
  * Projet: Lab1
@@ -16,6 +5,11 @@ import java.util.Random;
  * Author: Wes Gilleland
  * Purpose: To practice using logical expressions and selection statements
  */
+
+package lab1;
+import java.util.Scanner;
+import java.util.Random;
+
 public class Lab1 {
 
 	public static void main(String[] args) { 
