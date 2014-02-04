@@ -30,6 +30,19 @@ class PointList {
 	}
 
 	void findClosestPair(){
+		int p1 = 0, p2 = 1; //assume that the closest pair are points p1 and p2
+		double dist = distance(points[p1][0], points[p1][1], points[p2][0], points[p2][1]);
+		
+		for(int i=0; i < points.length; i++) //traverse all possible points in the list
+			for(int j=i+1; j < points.length; j++){ //traverse all points that have not been checked
+				double d = distance(points[i][0], points[i][1], points[j][0], points[j][1]);
+				if (d < dist){ //if the current distance is smaller than our guess
+					p1 = i; 
+					p2 = j;
+					dist = d;
+				}
+			}
+		System.out.printf("The closest pair are (%.2f, $.2f) and (%.2f, %.2f)",points[p1][0], points[p1][1], points[p2][0], points[p2][1]);
 	}
 }
 
