@@ -52,14 +52,36 @@ class Grid{
 	private int A[][] = new int[maxSize][maxSize];
 
 	// randomly set every element with 0 or 1
-	public void rand_set(){
+	public void Grid(int size){
 		Random rand = new Random();
+		
+		maxSize = size;
+		A = new int[maxSize][maxSize];
+		for(int i=0; i < A.length; i++) //rows
+			for(int j=0; j < A[i].length; j++){ //elements in rows
+				A[i][j] = rand.nextInt();
+			}
 	}
 
 	public void print(){
+		for(int i=0; i < A.length; i++){ //rows
+			for(int j=0; j < A[i].length; j++){ //elements in rows
+				System.out.print(A[i][j]+" ");
+			}
+			System.out.println();
+		}
 	}
 
-	public void check(){
+	public void check(){ //check if a row has the same value throughout
+		for(int i=0; i < A.length; i++){ //rows
+			int j;
+			for(j=0; j < A[i].length; j++){ //elements in rows
+				if(A[i][0] != A[i][j]) //if row is not homogenus, then break
+					break;
+			}
+			if(j == A[i].length) //if we successfully checked all rows, then all elements are homogenus
+				System.out.printf("All %d in row %d", A[i]);
+		}
 	}
 }
 
