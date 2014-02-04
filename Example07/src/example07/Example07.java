@@ -59,7 +59,7 @@ class Grid{
 		A = new int[maxSize][maxSize];
 		for(int i=0; i < A.length; i++) //rows
 			for(int j=0; j < A[i].length; j++){ //elements in rows
-				A[i][j] = rand.nextInt(2);
+				A[i][j] = rand.nextInt(3);
 			}
 	}
 
@@ -98,17 +98,15 @@ class Grid{
 				r++;
 				c--;
 				numRows--;
-				flag++;
 			}
 			else if(flag == 1){ //walking down
 				for(int i=1; i <= numRows; i++){
 					System.out.printf("%d ", A[r][c]);
-					c++;
+					r++;
 				}
 				r--;
 				c--;
 				numCols--;
-				flag++;
 			}
 			else if(flag == 2){ //walking left
 				for(int i=1; i <= numCols; i++){
@@ -116,10 +114,20 @@ class Grid{
 					c--;
 				}
 				r--;
-				c--;
-				numCols--;
-				flag++;
+				c++;
+				numRows--;
 			}
+			else{ //walking up
+				for(int i=1; i <= numRows; i++){
+					System.out.printf("%d ", A[r][c]);
+					r--;
+				}
+				r++;
+				c++;
+				numCols--;
+			}
+			flag = (flag+1)%4;
+			System.out.println();
 		}
 	}
 }
@@ -131,5 +139,6 @@ public class Example07{
 		Grid g1 = new Grid(3);
 		g1.print();
 		g1.check();
+		g1.circleWalk();
 	}
 }
