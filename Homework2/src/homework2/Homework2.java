@@ -14,9 +14,7 @@ import java.util.Scanner;
  */
 class LargeInteger {
 
-	public String num; // use a string to store the integer 
-	public Long product;
-	int multiplier = 1; //the multiplier for our intermediate calculations
+	public String num; // use a string to store the integer
 
 	/**
 	 * Constructor: initialize num with str E.g., str is "4927", then num is
@@ -31,8 +29,10 @@ class LargeInteger {
 	 * is returned through a string
 	 */
 	String add(LargeInteger another) {
-		// your code comes here 
-		return "";
+		// your code comes here
+		String result = "";
+		
+		return result;
 	}
 
 	/**
@@ -40,20 +40,23 @@ class LargeInteger {
 	 * result is returned through a string
 	 */
 	String multiply(LargeInteger another) {
-		// your code comes here 
-		return "";
+		// your code comes here
+		String result = "";
+		
+		return result;
 	}
 }
 
 public class Homework2 {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		
+
 		System.out.println("Enter two positive integers: ");
 		LargeInteger int1 = new LargeInteger(in.nextLine());
 		LargeInteger int2 = new LargeInteger(in.nextLine());
-		
-		
+		System.out.println(int1.num+" * "+int2.num+" = "+int1.multiply(int2));
+
+
 	}
 
 }
