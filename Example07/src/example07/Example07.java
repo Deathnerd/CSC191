@@ -52,7 +52,7 @@ class Grid{
 	private int A[][] = new int[maxSize][maxSize];
 
 	// randomly set every element with 0 or 1
-	public void Grid(int size){
+	public Grid(int size){
 		Random rand = new Random();
 		
 		maxSize = size;
@@ -80,7 +80,7 @@ class Grid{
 					break;
 			}
 			if(j == A[i].length) //if we successfully checked all rows, then all elements are homogenus
-				System.out.printf("All %d in row %d", A[i]);
+				System.out.printf("All %d in row %d", A[i][0], i);
 		}
 	}
 }
@@ -88,5 +88,9 @@ class Grid{
 public class Example07{
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
+		
+		Grid g1 = new Grid(3);
+		g1.print();
+		g1.check();
 	}
 }
