@@ -100,14 +100,24 @@ class Grid{
 				numRows--;
 				flag++;
 			}
-			else if(flag ==1){
+			else if(flag == 1){ //walking down
 				for(int i=1; i <= numRows; i++){
 					System.out.printf("%d ", A[r][c]);
 					c++;
 				}
-				r++;
+				r--;
 				c--;
-				numRows--;
+				numCols--;
+				flag++;
+			}
+			else if(flag == 2){ //walking left
+				for(int i=1; i <= numCols; i++){
+					System.out.printf("%d ", A[r][c]);
+					c--;
+				}
+				r--;
+				c--;
+				numCols--;
 				flag++;
 			}
 		}
