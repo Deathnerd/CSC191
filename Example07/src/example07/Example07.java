@@ -1,4 +1,4 @@
-package Example07;
+package example07;
 // ------------------------------
 // Course: CSC191
 // Project: Example 07 - 2d Grid Array
@@ -59,7 +59,7 @@ class Grid{
 		A = new int[maxSize][maxSize];
 		for(int i=0; i < A.length; i++) //rows
 			for(int j=0; j < A[i].length; j++){ //elements in rows
-				A[i][j] = rand.nextInt();
+				A[i][j] = rand.nextInt(2);
 			}
 	}
 
@@ -80,8 +80,12 @@ class Grid{
 					break;
 			}
 			if(j == A[i].length) //if we successfully checked all rows, then all elements are homogenus
-				System.out.printf("All %d in row %d", A[i][0], i);
+				System.out.printf("All %d in row %d \n", A[i][0], i);
 		}
+	}
+	
+	void circleWalk(){
+		
 	}
 }
 
