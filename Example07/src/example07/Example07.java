@@ -85,7 +85,32 @@ class Grid{
 	}
 	
 	void circleWalk(){
+		int numRows = maxSize, numCols = maxSize;
+		int r = 0, c = 0; //start from the top left corner
+		int flag = 0; //0:right 1:down 2:left 3:up
 		
+		while(numRows >=0 || numCols >=0){
+			if(flag == 0){ //walking to the right
+				for(int i=1; i <= numCols; i++){
+					System.out.printf("%d ", A[r][c]);
+					c++;
+				}
+				r++;
+				c--;
+				numRows--;
+				flag++;
+			}
+			else if(flag ==1){
+				for(int i=1; i <= numRows; i++){
+					System.out.printf("%d ", A[r][c]);
+					c++;
+				}
+				r++;
+				c--;
+				numRows--;
+				flag++;
+			}
+		}
 	}
 }
 
