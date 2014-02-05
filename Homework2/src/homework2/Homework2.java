@@ -15,7 +15,7 @@ import java.util.Scanner;
 class LargeInteger {
 
 	public String num; // use a string to store the integer
-
+	final int base = 10;        // for decimal numbers
 	/**
 	 * Constructor: initialize num with str E.g., str is "4927", then num is
 	 * initialized to "4927"
@@ -29,8 +29,6 @@ class LargeInteger {
 	 * is returned through a string
 	 */
 	String add(LargeInteger another) {
-		// your code comes here
-		final int base = 10;        // for decimal numbers
 		String r = "";              // result
 		int idx1 = num.length() - 1;
 		int idx2 = another.num.length() - 1;
@@ -73,12 +71,39 @@ class LargeInteger {
 	 */
 	String multiply(LargeInteger another) {
 		// your code comes here
+		String multiplicand = num;
+		String multiplier = another.num;
 		String result = "";
+		String r = "";
+		LargeInteger r1 = new LargeInteger("0");
+		int carry = 0;
+		int m = 1; //the multiplier for our resultant numbers.... may not need it
 		
-		LargeInteger res1 = new LargeInteger("16526");
-		LargeInteger res2 = new LargeInteger("2871");
+		int multiplierIndex = another.num.length()-1;
 		
-		res1.add(res2);
+		//for each number in the multiplier
+		while(multiplierIndex >= 0){
+			int multiplicandIndex = num.length()-1;
+			while(multiplicandIndex >= 0){	//for each number in the multiplicand
+				int product = (multiplier.charAt(multiplierIndex)-'0') * (multiplicand.charAt(multiplicandIndex)-'0');
+				r = product % base + carry + r; //tack on the 1's and the leftover carry
+				carry = product / base; //do we have a carry?
+				multiplicandIndex--;
+			}
+			for(int i = 1; i < m; i++)
+				r += "0";
+			m++; //increase the multiplier
+			
+			if(carry != 0) //if there is a carry
+				r = carry + r; //add the carry to the beginning of the string
+			
+			LargeInteger r2 = new LargeInteger(r);
+			result = r1.add(r2);
+			multiplierIndex--;
+			r1.num = result;
+			r = "";
+		}
+		
 		return result;
 	}
 }
@@ -90,10 +115,7 @@ public class Homework2 {
 		System.out.println("Enter two positive integers: ");
 		LargeInteger int1 = new LargeInteger(in.nextLine());
 		LargeInteger int2 = new LargeInteger(in.nextLine());
-//		System.out.println(int1.num+" * "+int2.num+" = "+int1.multiply(int2));
+		System.out.println(int1.num+" * "+int2.num+" = "+int1.multiply(int2));
 		System.out.println(int1.add(int2));
-
-
 	}
-
 }
