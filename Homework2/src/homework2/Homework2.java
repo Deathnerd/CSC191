@@ -10,7 +10,7 @@
 package homework2;
 import java.util.Scanner;
 /**
- * Positive integers of arbitrary length
+ * Positive integers of arbitrary length!
  */
 class LargeInteger {
 
