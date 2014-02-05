@@ -30,9 +30,41 @@ class LargeInteger {
 	 */
 	String add(LargeInteger another) {
 		// your code comes here
-		String result = "";
-		
-		return result;
+		final int base = 10;        // for decimal numbers
+		String r = "";              // result
+		int idx1 = num.length() - 1;
+		int idx2 = another.num.length() - 1;
+		int carry = 0;
+
+		while((idx1 >= 0) && (idx2 >= 0)){ //not reached the beginning of the either string
+			int sum = (num.charAt(idx1) - '0') + (another.num.charAt(idx2) - '0') + carry; //add the two numbers
+			r = sum % base + r; //tack on the 1's place to the result
+			carry = sum / base; //if sum < 9, we have a carry
+
+			idx1--;
+			idx2--;
+		}
+
+		while(idx1 >= 0){ //not reached the beginning of the 1st string
+			int sum = (num.charAt(idx1) - '0') + carry;
+			r = sum % base + r;
+			carry = sum / base;
+
+			idx1--;
+		}
+
+		while(idx2 >= 0){ //not reached the beginning of the 2st string
+			int sum = (another.num.charAt(idx2) - '0') + carry;
+			r = sum % base + r;
+			carry = sum / base;
+
+			idx2--;
+		}
+
+		if(carry == 1){ //final carry
+			r = carry + r;
+		}
+		return r;
 	}
 
 	/**
@@ -43,6 +75,10 @@ class LargeInteger {
 		// your code comes here
 		String result = "";
 		
+		LargeInteger res1 = new LargeInteger("16526");
+		LargeInteger res2 = new LargeInteger("2871");
+		
+		res1.add(res2);
 		return result;
 	}
 }
@@ -54,7 +90,8 @@ public class Homework2 {
 		System.out.println("Enter two positive integers: ");
 		LargeInteger int1 = new LargeInteger(in.nextLine());
 		LargeInteger int2 = new LargeInteger(in.nextLine());
-		System.out.println(int1.num+" * "+int2.num+" = "+int1.multiply(int2));
+//		System.out.println(int1.num+" * "+int2.num+" = "+int1.multiply(int2));
+		System.out.println(int1.add(int2));
 
 
 	}
