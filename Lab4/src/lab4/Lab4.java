@@ -1,10 +1,11 @@
 // ------------------------------
 // Course: CSC191
-// Project: Example 07 - 2d Grid Array
+// Project: Lab 4 - The N Queens Problem
 // Date: 2/5/13
 // Author: George Gilleland
 // ..............................
-// Purpose: This is a template of all your future programs
+// Purpose: This will generate an NxN chessboard and randomly place N queens
+// with no row or column containing more than one queen
 // ------------------------------
 package lab4;
 import java.util.Random;
@@ -16,13 +17,14 @@ class ChessBoard {
 	private boolean columnsPlaced[];
 
 	// construct a size by size chessboard and initialize 
-	// all elements with character ‘X’ 
+	// all elements with character â€˜Xâ€™ 
 	ChessBoard(int s) {
 		// your code 
 		size = s;
 		A = new char [size][size];
-		for(int i = 0; i < size; i++)
-			for(int j = 0; j < size; j++)
+		//fill the board with the character 'X'
+		for(int i = 0; i < size; i++) //rows
+			for(int j = 0; j < size; j++) //columns
 				A[i][j] = 'X';
 		columnsPlaced = new boolean [size];
 	}
@@ -30,15 +32,15 @@ class ChessBoard {
 	// print the content of the chessboard 
 	void print() {
 		// your code 
-		for(int i = 0; i < size; i++){
-			for(int j = 0; j < size; j++)
+		for(int i = 0; i < size; i++){ //rows
+			for(int j = 0; j < size; j++) //columns
 				System.out.print(" "+A[i][j]+" ");
 			System.out.println();
 		}
 		System.out.println();
 	}
 
-	// place queens on the chessboard by marking cells with ‘Q’ 
+	// place queens on the chessboard by marking cells with â€˜Qâ€™ 
 	// such that no two queens are on the same row or same column 
 	void placeQueens() {
 		// your code
@@ -46,18 +48,15 @@ class ChessBoard {
 		Random rand = new Random();
 			//place the queens. Only places one queen per row
 			for(int i = 0; i < size; i++){ //rows
-				placed = false;
-//				for(int j = 0; j < size; j++){ //columns
-				while(!placed){
-					int j = rand.nextInt(size);
-					placed = false;
+				placed = false; //has a queen been placed?
+				while(!placed){ //keep trying till a queen is placed in the row
+					int j = rand.nextInt(size); //pick a random spot on the row
 					if(!columnsPlaced[j]){ //if there's not a queen in the column
-						boolean place = rand.nextBoolean();
-						if(place){
+						boolean place = rand.nextBoolean(); //flip a coin, basically
+						if(place){ //should we place a queen?
 							A[i][j] = 'Q';
-							columnsPlaced[j] = true;
-							placed = true;
-							break;
+							columnsPlaced[j] = true; //mark this column as occupied
+							placed = true; //a queen has been placed
 						}
 					}
 				}
@@ -67,7 +66,6 @@ class ChessBoard {
 	// scan the chessboard by making counter clockwise circles, 
 	// starting from the bottom-right corner 
 	void circleScan() {
-		// your code 
 		int numRows = size, numCols = size;
 		int r = size-1, c = size-1; //start from the bottom right corner
 		int flag = 0; //0:up, 1:left, 2:down, 3:right
