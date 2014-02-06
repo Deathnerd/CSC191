@@ -135,8 +135,8 @@ class Grid{
 public class Example07{
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
-		
-		Grid g1 = new Grid(3);
+		System.out.print("Enter a positive integer: ");
+		Grid g1 = new Grid(input.nextInt());
 		g1.print();
 		g1.check();
 		g1.circleWalk();
