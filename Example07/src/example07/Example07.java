@@ -164,18 +164,16 @@ class Grid {
 			while (r >= 0 && c >= 0 && r <= maxSize - 1 && c <= maxSize - 1) {
 				System.out.print(A[r][c] + " ");
 
-//				if (flag == 0) {
-//					r--;
-//					c++;
-//				} else {
-//					r++;
-//					c--;
-//				}
-				r = r - flag;
-				c = c + flag;
+				if (flag == 0) {
+					r--;
+					c++;
+				} else {
+					r++;
+					c--;
+				}
 			}
 			System.out.println();
-			flag = -flag;
+			flag = (flag + 1) % 2;
 		}
 	}
 }

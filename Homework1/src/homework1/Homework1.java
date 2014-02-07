@@ -119,7 +119,7 @@ class Circle{
 		//only one case left: one intersection
 		double base = dist;
 		double hyp = radius;
-		double b = Math.sqrt((base*base)+(hyp*hyp));
+		double b = Math.sqrt((base*base)-(hyp*hyp));
 		
 		if(line.p1.x < center.x){
 			if(line.p2.y <= center.y - radius){
