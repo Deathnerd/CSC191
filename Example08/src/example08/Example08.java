@@ -41,6 +41,14 @@ class RecursiveMethods {
 			return 0;
 		return a + multiply(a, b-1);	//general case
 	}
+
+	//Greatest Common Divisor using Euclid's Method
+	static int gcdEuclid(int n1, int n2){
+		if (n2 == 0)
+			return n1;
+		
+		return gcdEuclid(n2, n1%n2);
+	}
 }
 
 public class Example08 {
@@ -74,5 +82,4 @@ public class Example08 {
 
 		System.out.println("Thanks for using my program.");
 	}
-
 }
