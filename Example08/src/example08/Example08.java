@@ -41,6 +41,14 @@ class RecursiveMethods {
 			return 0;
 		return a + multiply(a, b-1);	//general case
 	}
+
+	//Greatest Common Divisor using Euclid's Method
+	static int gcdEuclid(int n1, int n2){
+		if (n2 == 0)
+			return n1;
+		
+		return gcdEuclid(n2, n1%n2);
+	}
 }
 
 public class Example08 {
@@ -52,6 +60,7 @@ public class Example08 {
 			System.out.println("1. Power(x, n)");
 			System.out.println("2. Factorial(n)");
 			System.out.println("3. Multiply(a, b)");
+			System.out.println("4. GCD(a, b)");
 			System.out.println("0. Quit");
 
 			option = input.nextInt();
@@ -67,6 +76,9 @@ public class Example08 {
 				case 3:
 					System.out.println("5*4="+RecursiveMethods.multiply(5,4));
 					break;
+				case 4:
+					System.out.println("GCD of 5 and 25 is "+RecursiveMethods.gcdEuclid(5, 25));
+					break;
 				default:
 					System.out.println("Invalid option!  Try it again: ");
 			}
@@ -74,5 +86,4 @@ public class Example08 {
 
 		System.out.println("Thanks for using my program.");
 	}
-
 }
