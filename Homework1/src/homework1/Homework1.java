@@ -1,6 +1,9 @@
 /**
- * Course: CSC191, Spring 2014 Projet: Homework1 Date: 1/23/2014 Author: Wes
- * Gilleland Purpose: To find the intersections of a vertical line segment and a
+ * Course: CSC191, Spring 2014 
+ * Projet: Homework1 
+ * Date: 1/23/2014 
+ * Author: Wes Gilleland 
+ * Purpose: To find the intersections of a vertical line segment and a
  * circle
  */
 package homework1;
