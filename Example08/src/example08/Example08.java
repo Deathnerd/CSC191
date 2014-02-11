@@ -27,6 +27,20 @@ class RecursiveMethods {
 		else //n is even
 			return t*t;
 	}
+
+	//n! = 1*2*3...*n
+	static long factorial(int n){
+		if(n==1)
+			return 1;
+
+		return n * factorial(n-1);
+	}
+
+	static int multiply(int a, int b){
+		if(b==0)	//base case
+			return 0;
+		return a + multiply(a, b-1);	//general case
+	}
 }
 
 public class Example08 {
@@ -36,6 +50,8 @@ public class Example08 {
 		do {
 			System.out.println("\nSelect from:");
 			System.out.println("1. Power(x, n)");
+			System.out.println("2. Factorial(n)");
+			System.out.println("3. Multiply(a, b)");
 			System.out.println("0. Quit");
 
 			option = input.nextInt();
@@ -43,7 +59,13 @@ public class Example08 {
 				case 0:
 					break;
 				case 1:
-					System.out.println("2^7="+RecursiveMethods.pow2(2,7));
+					System.out.println("2^6="+RecursiveMethods.pow2(2,6));
+					break;
+				case 2:
+					System.out.println("5!="+RecursiveMethods.factorial(5));
+					break;
+				case 3:
+					System.out.println("5*4="+RecursiveMethods.multiply(5,4));
 					break;
 				default:
 					System.out.println("Invalid option!  Try it again: ");
