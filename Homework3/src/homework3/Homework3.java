@@ -9,13 +9,10 @@ import java.util.Random;
 
 class TicTacToe {
 
-	private int size; // should be 3 
+	private final int size; // should be 3 
 	private char S[][]; // a size*size array to represent the grid 
 	private char winner;
 	private int count = 1; //turn count
-
-	final static char user = 'U'; // used by user to mark a cell 
-	final static char computer = 'C';//used by computer to mark a cell 
 
 	// constructor 
 	TicTacToe() {
@@ -53,6 +50,7 @@ class TicTacToe {
 				if (S[x][y] == '?') { //if it is a blank space
 					S[x][y] = 'C';
 					done = true;
+					count++;
 					return;
 				}
 			}
@@ -67,6 +65,7 @@ class TicTacToe {
 			placeToken(x, y); //user turn
 		}
 		S[x][y] = 'U';
+		count++;
 	}
 
 	boolean checkWin() {
@@ -120,6 +119,10 @@ class TicTacToe {
 				System.out.println(winner + " wins!");
 				return;
 			}
+			if(count == 9){ //nobody won
+				System.out.println("Nobody wins!");
+				return;
+			}
 			placeToken(4, 4); //computer turn
 			if (checkWin()) {
 				print();
@@ -127,7 +130,7 @@ class TicTacToe {
 				return;
 			}
 			print();
-		} while (true);
+		} while (true && count <= 9);
 	}
 }
 
