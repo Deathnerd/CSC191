@@ -15,21 +15,22 @@ class RecursiveMethods {
 		else
 			return x*pow1(x, n-1);
 	}
+	
+	static double pow2(double x, int n){
+		if(n==0)
+			return 1;
+		
+		double t = pow2(x, n/2);
+		if(n%2 == 1){ //n is odd
+			return x*t*t;
+		}
+		else //n is even
+			return t*t;
+	}
 }
 
-/**
- *
- * @author Deathnerd
- */
 public class Example08 {
-
-	/**
-	 * @param args the command line arguments
-	 */
 	public static void main(String[] args) {
-        //-----------------------------------------------------
-		//-----------------------------------------------------
-
 		Scanner input = new Scanner(System.in);
 		int option;
 		do {
@@ -42,7 +43,7 @@ public class Example08 {
 				case 0:
 					break;
 				case 1:
-					System.out.println("x^n="+RecursiveMethods.pow1(2,7));
+					System.out.println("2^7="+RecursiveMethods.pow2(2,7));
 					break;
 				default:
 					System.out.println("Invalid option!  Try it again: ");
