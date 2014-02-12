@@ -1,6 +1,9 @@
 /**
- * Course: CSC191, Spring 2014 Projet: Homework3 Date: 2/11/2014 Author: Wes
- * Gilleland Purpose: A simple Tic-Tac-Toe game
+ * Course: CSC191, Spring 2014 
+ * Project: Homework3 
+ * Date: 2/11/2014 
+ * Author: Wes Gilleland 
+ * Purpose: A simple Tic-Tac-Toe game
  */
 package homework3;
 
