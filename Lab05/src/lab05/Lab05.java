@@ -23,10 +23,10 @@ class DM{
 	static int mod(int numerator, int denominator){
 		if(numerator < denominator) //base case
 			return numerator;
-		else{
+		else	//keep going
 			numerator -= denominator;
-			return mod(numerator, denominator);
-		}
+		
+		return mod(numerator, denominator);
 	}
 }
 public class Lab05 {
