@@ -12,8 +12,7 @@ class RecursiveMethods {
 	static double pow1(double x, int n){
 		if(n==0)
 			return 1;
-		else
-			return x*pow1(x, n-1);
+		return x*pow1(x, n-1);
 	}
 	
 	static double pow2(double x, int n){
@@ -21,18 +20,15 @@ class RecursiveMethods {
 			return 1;
 		
 		double t = pow2(x, n/2);
-		if(n%2 == 1){ //n is odd
+		if(n%2 == 1)//n is odd
 			return x*t*t;
-		}
-		else //n is even
-			return t*t;
+		return t*t;	//n is even
 	}
 
 	//n! = 1*2*3...*n
 	static long factorial(int n){
 		if(n==1)
 			return 1;
-
 		return n * factorial(n-1);
 	}
 
@@ -46,8 +42,50 @@ class RecursiveMethods {
 	static int gcdEuclid(int n1, int n2){
 		if (n2 == 0)
 			return n1;
-		
 		return gcdEuclid(n2, n1%n2);
+	}
+}
+
+class NumberSeries{
+	
+	/*
+	 *1/3 + 2/5 + 3/7 + ... + i/(2i+1)
+	 */
+	static float series1(int i){
+		if(i==0) //base case
+			return 0;
+		return series1(i-1)+(float)i/(float)(2*i+1);
+	}
+	
+	/*
+	 * 1 + 4 + 9 + 16 + ... + i^2
+	 */
+	static float series2(int i){
+		if(i==0)
+			return 0;
+		return series2(i-1)+i*i;
+	}
+	
+	/*
+	 * Generate the i-th number in the Fibonacci sequence
+	 */
+	static int fibonacci(int i){
+		if(i==1 || i==2)
+			return 1;
+		return fibonacci(i-1) + fibonacci(i-2);
+	}
+}
+
+class MyPrint{
+	static void printTriangle1(int n){
+		if(n>0){ //base case
+			//print the 1st row with n stars
+			for(int i=1; i<=n; i++)
+				System.out.print("*");
+			System.out.println();
+			//print the triangle with n-1 lines;
+			printTriangle1(n-1);
+		}
 	}
 }
 
@@ -61,6 +99,9 @@ public class Example08 {
 			System.out.println("2. Factorial(n)");
 			System.out.println("3. Multiply(a, b)");
 			System.out.println("4. GCD(a, b)");
+			System.out.println("5. Number series(a)");
+			System.out.println("6. Fibonacci(a)");
+			System.out.println("7. PrintTriangle(a)");
 			System.out.println("0. Quit");
 
 			option = input.nextInt();
@@ -79,8 +120,20 @@ public class Example08 {
 				case 4:
 					System.out.println("GCD of 5 and 25 is "+RecursiveMethods.gcdEuclid(5, 25));
 					break;
+				case 5:
+					System.out.println("series1(5) = "+NumberSeries.series1(5));
+					System.out.println("series2(5) = "+NumberSeries.series2(5));
+					break;
+				case 6:
+					System.out.println("Fibonacci(6) = "+NumberSeries.fibonacci(6));
+					break;
+				case 7:
+					System.out.println("PrintTriangle1 = ");
+					MyPrint.printTriangle1(6);
+					break;
 				default:
 					System.out.println("Invalid option!  Try it again: ");
+					break;
 			}
 		} while (option != 0);
 
