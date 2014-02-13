@@ -79,12 +79,41 @@ class NumberSeries{
 class MyPrint{
 	static void printTriangle1(int n){
 		if(n>0){ //base case
+			//print the triangle with n-1 lines;
+			printTriangle1(n-1);
 			//print the 1st row with n stars
 			for(int i=1; i<=n; i++)
 				System.out.print("*");
 			System.out.println();
-			//print the triangle with n-1 lines;
-			printTriangle1(n-1);
+		}
+	}
+	
+	/*
+	 * *****
+	 *  ****
+	 *   ***
+	 *    **
+	 *     *
+	*/
+	static void printTriangle2(int n){
+		printTriangle2(n, 0);
+	}
+	
+	/*
+	 * n: number of lines in the triangle
+	 * s: number of blank spaces at the beginning of the first line in a triangle
+	*/
+	static void printTriangle2(int n, int s){
+		if(n > 0){
+			//print s blank spaces
+			for (int i=1; i<=s; i++)
+				System.out.print(" ");
+			//print n stars and a line break
+			for(int i=1; i<=n; i++)
+				System.out.print("*");
+			System.out.println();
+			//print the smaller triangle with (n-1) lines
+			printTriangle2(n-1, s+1);
 		}
 	}
 }
@@ -128,8 +157,10 @@ public class Example08 {
 					System.out.println("Fibonacci(6) = "+NumberSeries.fibonacci(6));
 					break;
 				case 7:
-					System.out.println("PrintTriangle1 = ");
+					System.out.println("PrintTriangle1");
 					MyPrint.printTriangle1(6);
+					System.out.println();
+					MyPrint.printTriangle2(6);
 					break;
 				default:
 					System.out.println("Invalid option!  Try it again: ");
