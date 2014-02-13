@@ -12,20 +12,20 @@ class DM{
 	static int divide(int numerator, int denominator){
 		if(denominator > numerator) //if we have a decimal fraction
 			return 0;
-		else if((numerator - denominator) < denominator) //base case
+		else if ((numerator - denominator) < denominator) //base case
 			return 1;
-		else //keep going
-			numerator -= denominator;
-		
+			
+		//keep going
+		numerator -= denominator;
 		return 1+divide(numerator, denominator);
 	}
 	
 	static int mod(int numerator, int denominator){
 		if(numerator < denominator) //base case
 			return numerator;
-		else	//keep going
-			numerator -= denominator;
 		
+		//keep going
+		numerator -= denominator;
 		return mod(numerator, denominator);
 	}
 }
