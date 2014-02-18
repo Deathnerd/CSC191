@@ -9,132 +9,198 @@ import java.util.*;
 
 class RecursiveMethods {
 
-	static double pow1(double x, int n){
-		if(n==0)
+	static double pow1(double x, int n) {
+		if (n == 0) {
 			return 1;
-		return x*pow1(x, n-1);
+		}
+		return x * pow1(x, n - 1);
 	}
-	
-	static double pow2(double x, int n){
-		if(n==0)
+
+	static double pow2(double x, int n) {
+		if (n == 0) {
 			return 1;
-		
-		double t = pow2(x, n/2);
-		if(n%2 == 1)//n is odd
-			return x*t*t;
-		return t*t;	//n is even
+		}
+
+		double t = pow2(x, n / 2);
+		if (n % 2 == 1)//n is odd
+		{
+			return x * t * t;
+		}
+		return t * t;	//n is even
 	}
 
 	//n! = 1*2*3...*n
-	static long factorial(int n){
-		if(n==1)
+	static long factorial(int n) {
+		if (n == 1) {
 			return 1;
-		return n * factorial(n-1);
+		}
+		return n * factorial(n - 1);
 	}
 
-	static int multiply(int a, int b){
-		if(b==0)	//base case
+	static int multiply(int a, int b) {
+		if (b == 0) //base case
+		{
 			return 0;
-		return a + multiply(a, b-1);	//general case
+		}
+		return a + multiply(a, b - 1);	//general case
 	}
 
 	//Greatest Common Divisor using Euclid's Method
-	static int gcdEuclid(int n1, int n2){
-		if (n2 == 0)
+	static int gcdEuclid(int n1, int n2) {
+		if (n2 == 0) {
 			return n1;
-		return gcdEuclid(n2, n1%n2);
+		}
+		return gcdEuclid(n2, n1 % n2);
 	}
 }
 
-class NumberSeries{
-	
+class NumberSeries {
+
 	/*
 	 *1/3 + 2/5 + 3/7 + ... + i/(2i+1)
 	 */
-	static float series1(int i){
-		if(i==0) //base case
+	static float series1(int i) {
+		if (i == 0) //base case
+		{
 			return 0;
-		return series1(i-1)+(float)i/(float)(2*i+1);
+		}
+		return series1(i - 1) + (float) i / (float) (2 * i + 1);
 	}
-	
+
 	/*
 	 * 1 + 4 + 9 + 16 + ... + i^2
 	 */
-	static float series2(int i){
-		if(i==0)
+	static float series2(int i) {
+		if (i == 0) {
 			return 0;
-		return series2(i-1)+i*i;
+		}
+		return series2(i - 1) + i * i;
 	}
-	
+
 	/*
 	 * Generate the i-th number in the Fibonacci sequence
 	 */
-	static int fibonacci(int i){
-		if(i==1 || i==2)
+	static int fibonacci(int i) {
+		if (i == 1 || i == 2) {
 			return 1;
-		return fibonacci(i-1) + fibonacci(i-2);
+		}
+		return fibonacci(i - 1) + fibonacci(i - 2);
 	}
 }
 
-class MyPrint{
-	static void printTriangle1(int n){
-		if(n>0){ //base case
+class MyPrint {
+
+	static void printTriangle1(int n) {
+		if (n > 0) { //base case
 			//print the triangle with n-1 lines;
-			printTriangle1(n-1);
+			printTriangle1(n - 1);
 			//print the 1st row with n stars
-			for(int i=1; i<=n; i++)
+			for (int i = 1; i <= n; i++) {
 				System.out.print("*");
+			}
 			System.out.println();
 		}
 	}
-	
+
 	/*
 	 * *****
 	 *  ****
 	 *   ***
 	 *    **
 	 *     *
-	*/
-	static void printTriangle2(int n){
+	 */
+	static void printTriangle2(int n) {
 		printTriangle2(n, 0);
 	}
-	
+
 	/*
 	 * n: number of lines in the triangle
 	 * s: number of blank spaces at the beginning of the first line in a triangle
-	*/
-	static void printTriangle2(int n, int s){
-		if(n > 0){
+	 */
+	static void printTriangle2(int n, int s) {
+		if (n > 0) { //base condition
 			//print s blank spaces
-			for (int i=1; i<=s; i++)
+			for (int i = 1; i <= s; i++) {
 				System.out.print(" ");
+			}
 			//print n stars and a line break
-			for(int i=1; i<=n; i++)
+			for (int i = 1; i <= n; i++) {
 				System.out.print("*");
+			}
 			System.out.println();
 			//print the smaller triangle with (n-1) lines
-			printTriangle2(n-1, s+1);
+			printTriangle2(n - 1, s + 1);
 		}
 	}
-	static void printTriangle3(int n){
+
+	static void printTriangle3(int n) {
 		printTriangle3(n, 0);
 	}
-	
-	static void printTriangle3(int n, int s){
-		if(n > 0){
-			printTriangle3(n-1, s+1);
+
+	static void printTriangle3(int n, int s) {
+		if (n > 0) { //base condition
+			//print the larger line of stars
+			printTriangle3(n - 1, s + 1);
 			//print s blank spaces
-			for (int i=1; i<=s; i++)
+			for (int i = 1; i <= s; i++) {
 				System.out.print(" ");
+			}
 			//print n stars and a line break
-			for (int i=1; i<=n; i++)
+			for (int i = 1; i <= n; i++) {
 				System.out.print("*");
+			}
 			System.out.println();
+		}
+	}
+
+	static void printNumber1(int n) {
+		if (n > 0) {
+			System.out.print(n % 10);
+			printNumber1(n / 10);
+		}
+	}
+
+	static void printNumber2(int n) {
+		if (n >= 1) {
+			System.out.print(n + " ");
+			printNumber2(n - 1);
+			System.out.print(n + " ");
+		}
+	}
+
+	static void printChars1() {
+		Scanner in = new Scanner(System.in);
+
+		String next;
+		System.out.print("Enter a character (* to stop)");
+		next = in.next();
+
+		if (next.charAt(0) != '*') {
+			printChars1();
+			System.out.print(next);
 		}
 	}
 }
 
+class MyString {
+
+	boolean isPalindrome(String s) {
+		return isPalindrome(s, 0, s.length() - 1);
+	}
+
+	boolean isPalindrome(String s, int low, int high) {
+		//base case
+		if (low >= high) //0 or 1 character in the string
+		{
+			return true;
+		}
+		//general case
+		return s.charAt(low) == s.charAt(high) && isPalindrome(s, low + 1, high - 1);
+	}
+}
+
 public class Example08 {
+
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int option;
@@ -154,23 +220,23 @@ public class Example08 {
 				case 0:
 					break;
 				case 1:
-					System.out.println("2^6="+RecursiveMethods.pow2(2,6));
+					System.out.println("2^6=" + RecursiveMethods.pow2(2, 6));
 					break;
 				case 2:
-					System.out.println("5!="+RecursiveMethods.factorial(5));
+					System.out.println("5!=" + RecursiveMethods.factorial(5));
 					break;
 				case 3:
-					System.out.println("5*4="+RecursiveMethods.multiply(5,4));
+					System.out.println("5*4=" + RecursiveMethods.multiply(5, 4));
 					break;
 				case 4:
-					System.out.println("GCD of 5 and 25 is "+RecursiveMethods.gcdEuclid(5, 25));
+					System.out.println("GCD of 5 and 25 is " + RecursiveMethods.gcdEuclid(5, 25));
 					break;
 				case 5:
-					System.out.println("series1(5) = "+NumberSeries.series1(5));
-					System.out.println("series2(5) = "+NumberSeries.series2(5));
+					System.out.println("series1(5) = " + NumberSeries.series1(5));
+					System.out.println("series2(5) = " + NumberSeries.series2(5));
 					break;
 				case 6:
-					System.out.println("Fibonacci(6) = "+NumberSeries.fibonacci(6));
+					System.out.println("Fibonacci(6) = " + NumberSeries.fibonacci(6));
 					break;
 				case 7:
 					System.out.println("PrintTriangle1");
