@@ -23,9 +23,7 @@ class RecursiveMethods {
 
 		double t = pow2(x, n / 2);
 		if (n % 2 == 1)//n is odd
-		{
 			return x * t * t;
-		}
 		return t * t;	//n is even
 	}
 
@@ -39,9 +37,7 @@ class RecursiveMethods {
 
 	static int multiply(int a, int b) {
 		if (b == 0) //base case
-		{
 			return 0;
-		}
 		return a + multiply(a, b - 1);	//general case
 	}
 
@@ -61,9 +57,7 @@ class NumberSeries {
 	 */
 	static float series1(int i) {
 		if (i == 0) //base case
-		{
 			return 0;
-		}
 		return series1(i - 1) + (float) i / (float) (2 * i + 1);
 	}
 
@@ -191,11 +185,20 @@ class MyString {
 	boolean isPalindrome(String s, int low, int high) {
 		//base case
 		if (low >= high) //0 or 1 character in the string
-		{
 			return true;
-		}
 		//general case
 		return s.charAt(low) == s.charAt(high) && isPalindrome(s, low + 1, high - 1);
+	}
+
+	String removeChar(String s, char c) {
+		if (s.length() == 0) //if s.equals("")
+			return s; //return ""
+		//general case
+		if (s.charAt(0) != c) {
+			return s.charAt(0) + removeChar(s.substring(1), c);
+		} else {
+			return removeChar(s.substring(1), c);
+		}
 	}
 }
 
