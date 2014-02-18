@@ -116,6 +116,22 @@ class MyPrint{
 			printTriangle2(n-1, s+1);
 		}
 	}
+	static void printTriangle3(int n){
+		printTriangle3(n, 0);
+	}
+	
+	static void printTriangle3(int n, int s){
+		if(n > 0){
+			printTriangle3(n-1, s+1);
+			//print s blank spaces
+			for (int i=1; i<=s; i++)
+				System.out.print(" ");
+			//print n stars and a line break
+			for (int i=1; i<=n; i++)
+				System.out.print("*");
+			System.out.println();
+		}
+	}
 }
 
 public class Example08 {
@@ -161,6 +177,8 @@ public class Example08 {
 					MyPrint.printTriangle1(6);
 					System.out.println();
 					MyPrint.printTriangle2(6);
+					System.out.println();
+					MyPrint.printTriangle3(6);
 					break;
 				default:
 					System.out.println("Invalid option!  Try it again: ");
