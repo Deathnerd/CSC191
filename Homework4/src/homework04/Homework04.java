@@ -140,17 +140,11 @@ class Walk {
 
 	// print the run-length coding result, i.e., content of rlc[][] 
 	void printCodingResult() {
-		System.out.printf("1(%d,%d)\n", rlc[1][0], rlc[1][1]);
-		System.out.printf("2(%d,%d)\n", rlc[2][0], rlc[2][1]);
-		System.out.printf("3(%d,%d)\n", rlc[3][0], rlc[3][1]);
-		System.out.printf("4(%d,%d)\n", rlc[4][0], rlc[4][1]);
-		System.out.printf("5(%d,%d)\n", rlc[5][0], rlc[5][1]);
-		System.out.printf("6(%d,%d)\n", rlc[6][0], rlc[6][1]);
 		int i = 1;
-//		while(rlc[i][0] != -1){
-//			System.out.printf("(%d,%d)\n", rlc[i][0], rlc[i][1]);
-//			i++;
-//		}
+		while(rlc[i][0] != -1){
+			System.out.printf("(%d,%d)\n", rlc[i][0], rlc[i][1]);
+			i++;
+		}
 	}
 }
 
