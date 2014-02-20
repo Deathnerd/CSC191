@@ -1,3 +1,13 @@
+// ------------------------------
+// Course: CSC191
+// Project: Homework 5
+// Date: 2/18/13
+// Author: George Gilleland
+// ..............................
+// Purpose: This program will create an N*N grid and walk it in a zig-zag
+// pattern while compressing the sequence using Run Length Coding
+// ------------------------------
+
 package homework04;
 import java.util.Scanner;
 
@@ -31,6 +41,7 @@ class Walk {
 	// randomly set elements with numbers 0 and 1 
 	Walk(int ms) {
 		// your code 
+		rlc = new int [ms+1][2];
 		A = new int [ms][ms];
 		maxSize = ms;
 		
@@ -108,28 +119,37 @@ class Walk {
 	//all examples for a 3x3 grid
 	void zigzagWalk2(){
 		int flag = 0; //0 is down, 1 is up
-		
-		for(int i = 1; i < maxSize*2-1; i++){ //2maxSize-1 segments
+		int m = 0;
+		for(int i = 1; i <= maxSize*2-1; i++){ //2maxSize-1 segments
 			int r, c; //start at the top right corner
 			//if moving down and right
 			if(flag == 0){
 				if (i < maxSize) {
-
+					c = maxSize-i;
+					r = 0;
 				} else {	
-
+					c = 0;
+					r = i - maxSize;
 				}
 			} else { //if moving up and left
 				if (i <= maxSize) { //repeats twice
-					
+					c = maxSize - 1;
+					r = i-1;
 				} else {
-					
+					r = maxSize-1;
+					m += 2;
+					if(maxSize % 2 == 0)
+						c = maxSize-flag-m;
+					else
+						c = maxSize - m; //this one
+//					System.out.println("C = "+c);
 				}
 			}
 			
 			//traverse the segment
 			//r >= 0 && c >= 0 keeps us above the lower bound of the array
 			//r <= maxSize-1 && c <= maxSize-1 keeps us below the upper bound
-			while(r >= 0 && c >=0 && r <= maxSize-1 && c <= maxSize-1){
+			while(r >= 0 && c >= 0 && r <= maxSize - 1 && c <= maxSize - 1){
 				System.out.print(A[r][c]+ " ");
 				if(flag == 0){ //moving down
 					r++; //move to the right
@@ -154,10 +174,10 @@ public class Homework04 {
 		
 		walk.print();
 		System.out.println("\n");
-//		walk.zigzagWalk1();
+		walk.zigzagWalk1();
 		System.out.println();
 		walk.zigzagWalk2();
-//		System.out.println();
+		System.out.println();
 //		walk.zigzagWalk3();
 	}
 }
