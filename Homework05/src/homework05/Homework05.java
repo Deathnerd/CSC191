@@ -19,12 +19,28 @@ package homework05;
 import java.util.Scanner;
 
 public class Homework05 {
-	static int PrintNumbers(int n){
-		System.out.println(n);
-		if(n == 0){ //base case
-			return 1;
+	static void PrintNumbers(int n){
+		PrintNumbers(n, 0);
+	}
+	
+	static int PrintNumbers(int n, int s){
+		
+		//this block does the first block of n+1 numbers
+		if (n >= 0){
+			for(int i = 1; i<=s; i++){ //print spaces, 0, 1, 2, 3, ...
+				System.out.print("  "); 
+			}
+			System.out.print(n+"\n");
+			PrintNumbers(n-1, s+1);
 		}
-		return n*PrintNumbers(n-1);
+		//factorial
+		if(n < 0){
+			n = 0;
+		}
+		if(s >= 0){
+			System.out.print(n*PrintNumbers(s-1, n+1));
+		}
+		return n;
 	}
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
