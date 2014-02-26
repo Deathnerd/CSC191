@@ -34,12 +34,6 @@ public class Homework05 {
 			PrintNumbers(n-1, s+1);
 		}
 		//factorial
-		if(n < 0){
-			n = 0;
-		}
-		if(s >= 0){
-			System.out.print(n*PrintNumbers(s-1, n+1));
-		}
 		return n;
 	}
 	public static void main(String[] args) {
