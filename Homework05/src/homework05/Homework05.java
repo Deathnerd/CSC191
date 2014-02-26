@@ -25,22 +25,33 @@ public class Homework05 {
 	
 	static int PrintNumbers(int n, int s){
 		
-		//this block does the first block of n+1 numbers
-		if (n >= 0){
-			for(int i = 1; i<=s; i++){ //print spaces, 0, 1, 2, 3, ...
-				System.out.print("  "); 
-			}
-			System.out.print(n+"\n");
-			PrintNumbers(n-1, s+1);
+		//print first n+1 lines
+		for(int i = 1; i<=s; i++)
+			System.out.print("  ");
+		System.out.println(n);
+		
+		//base condition
+		if (n==0){
+			//print first line of the second n+1 section and spaces
+			for(int i = 1; i<=s; i++)
+				System.out.print("  ");
+			System.out.println(1);
+			return 1; //base return
 		}
-		//factorial
-		return n;
+		
+		//factorial section 
+		int t = PrintNumbers(n-1, s+1); //grab the last factorial
+		for(int i = 1; i<=s; i++) //print the spaces
+			System.out.print("  ");
+		System.out.println(t*n); //print the current factorial
+		
+		return t*n; //return the current factorial up the chain
 	}
+	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
 		System.out.print("Enter a positive integer n where 0>n>10: ");
 		PrintNumbers(in.nextInt());
 	}
-	
 }
