@@ -51,7 +51,7 @@ public class Homework05 {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		System.out.print("Enter a positive integer n where 0>n>10: ");
+		System.out.print("Enter a positive integer n where 0>=n>=10: ");
 		PrintNumbers(in.nextInt());
 	}
 }
