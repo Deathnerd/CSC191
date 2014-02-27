@@ -83,7 +83,7 @@ public class Lab7 {
 			System.out.print("Select from:\n"
 					+		 "1. Count a specified character \n"
 					+		 "2. Index of a substring \n"
-					+		 "0. Quit");
+					+		 "0. Quit\n");
 			int i = in.nextInt();
 			switch(i){
 				case 1:
@@ -91,14 +91,14 @@ public class Lab7 {
 					str = in.next();
 					System.out.print("Enter a character:");
 					ch = in.next().charAt(0);
-					System.out.printf("Number of %c in %s: %d", ch, str, MyString.countChar(str, ch));
+					System.out.printf("Number of %c in %s: %d \n", ch, str, MyString.countChar(str, ch));
 					break;
 				case 2:
 					System.out.print("Enter a string: ");
 					str = in.next();
-					System.out.print("Enter a substrin: ");
+					System.out.print("Enter a substring: ");
 					sub = in.next();
-					System.out.printf("Substring %s is located at %d in string %s ", sub, MyString.idxOfSubstring(str, sub), str);
+					System.out.printf("Substring %s is located at %d in string %s \n", sub, MyString.idxOfSubstring(str, sub), str);
 					break;
 				case 0:
 					return;
