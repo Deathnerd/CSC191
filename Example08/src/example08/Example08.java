@@ -22,8 +22,7 @@ class RecursiveMethods {
 		}
 
 		double t = pow2(x, n / 2);
-		if (n % 2 == 1)//n is odd
-		{
+		if (n % 2 == 1) {//n is odd
 			return x * t * t;
 		}
 		return t * t;	//n is even
@@ -38,8 +37,7 @@ class RecursiveMethods {
 	}
 
 	static int multiply(int a, int b) {
-		if (b == 0) //base case
-		{
+		if (b == 0) { //base case
 			return 0;
 		}
 		return a + multiply(a, b - 1);	//general case
@@ -60,8 +58,7 @@ class NumberSeries {
 	 *1/3 + 2/5 + 3/7 + ... + i/(2i+1)
 	 */
 	static float series1(int i) {
-		if (i == 0) //base case
-		{
+		if (i == 0) { //base case
 			return 0;
 		}
 		return series1(i - 1) + (float) i / (float) (2 * i + 1);
@@ -249,10 +246,10 @@ class MyString {
 					result -= Integer.parseInt(s.substring(i + 1));
 					break;
 				case '*':
-					result *= Integer.parseInt(s.substring(i+1));
+					result *= Integer.parseInt(s.substring(i + 1));
 					break;
 				case '/':
-					result /= Integer.parseInt(s.substring(i+1));
+					result /= Integer.parseInt(s.substring(i + 1));
 			}
 
 			return result;
