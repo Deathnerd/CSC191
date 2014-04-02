@@ -35,7 +35,7 @@ public class Example15 {
 	 */
 	public static void main(String[] args) {
 		Integer integerArray[] = {2, 4, 6, 8, 10};
-		String stringArray[] = {"AB", "ABC", "BCF"};
+		String stringArray[] = {"AB", "ABC", "BC", "AA", "AC", "ABB"};
 
 		printArray(integerArray);
 		printArray(stringArray);
@@ -46,7 +46,7 @@ public class Example15 {
 		System.out.println("Max(5,3) = " + getMax(5, 3));
 		System.out.println("Max(\"abc\", \"fa\") = " + getMax("abc", "fa"));
 
-		String stringArray1[] = {"AB", "ABC", "BC"};
+		String stringArray1[] = {"AB", "ABC", "BC", "AA", "AC", "ABB"};
 		System.out.println(equals(stringArray, stringArray1));
 
 		Pair<String, String> grade440 = new Pair<String, String>("Mike", "A");
@@ -54,6 +54,10 @@ public class Example15 {
 
 		System.out.println("Grade: "+grade440.getString());
 		System.out.println("Marks: "+marks440.getString());
+
+		System.out.println(stringArray[1].compareTo(stringArray[0]));
+		System.out.println(stringArray[0].compareTo(stringArray[3]));
+		System.out.println(stringArray[3].compareTo(stringArray[0]));
 	}
 
 	static <E> void printArray(E arr[]) {
