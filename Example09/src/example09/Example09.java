@@ -37,9 +37,9 @@ class MyArray {
 	void randGenerate() {
 		Random rand = new Random();
 
-		n = rand.nextInt(A.length + 1);		// [0, maxSize]
+		n = rand.nextInt(A.length + 1);        // [0, maxSize]
 		for (int i = 0; i < n; i++) {
-			A[i] = rand.nextInt(10);		// random integer in [0,9]
+			A[i] = rand.nextInt(50);        // random integer in [0,9]
 		}
 	}
 
@@ -138,7 +138,6 @@ class MyArray {
 				A[i + 1] = t;
 			}
 		}
-
 		bubblesort(len - 1);
 	}
 
@@ -161,9 +160,8 @@ class MyArray {
 	}
 
 	public void selectionSort(int len) {
-		if (len == 1) {
+		if (len == 1)
 			return;
-		}
 
 		int idx = maxSub(len - 1);        //find highest number
 		int t = A[idx];     //sorts list
@@ -178,23 +176,21 @@ class MyArray {
 	}
 
 	public void insertionSort(int len) {
-		if (len == 1) {
+		if (len == 1)
 			return;
-		}
 
 		insertionSort(len - 1);       //sort sublist A[0] - A[len-1]
 
 		//insert A[len-1] into sorted list A[0] - A[len-2]
 		int t = A[len - 1];
 		int i;
-		for (i = len - 2; i > 0; i--) {
-			if (A[i] <= t) {
+		for (i = len - 2; i >= 0; i--) {
+			if (A[i] <= t)
 				break;
-			} else {
+			else
 				A[i + 1] = A[i];
-			}
-
 		}
+
 		A[i + 1] = t;
 	}
 
@@ -338,10 +334,12 @@ public class Example09 {
 					Ar.print();
 					break;
 				case 4:
+					Ar.max();
 					break;
 				case 5:
 					break;
 				case 6:
+					Ar.sort();
 					break;
 				case 7:
 					break;

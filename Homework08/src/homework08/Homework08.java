@@ -1,11 +1,21 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * ------------------------------
+ *	Course: CSC191
+ *	Project: Homework 08
+ *	Date: 4/11/13
+ *	Author: George Gilleland
+ *	..............................
+ *	Purpose: This program will generate an n*n matrix with randomly generated integer elements with
+ *	values of 0-49 inside a class called MyMatrix. The class will contain functions to perform printing,
+ *	binary searching, sequential searching, insertion sort, selection sort, bubble sort, and check if
+ * 	the array is sorted in non-descending sequential order.	It will also implement a user-friendly command-line
+ * 	menu with which to interact with the program.
+ *	------------------------------
  */
 package homework08;
 
 import java.util.Random;
+import java.util.Scanner;
 
 class MyMatrix {
 
@@ -41,7 +51,7 @@ class MyMatrix {
 		}
 	}
 
-	// Recursiely sort the matrix 
+	// Recursively sort the matrix
 	// using the bubble sort algorithm 
 	public void bubbleSort() {
 		bubbleSort(size - 1, size - 1);
@@ -89,8 +99,8 @@ class MyMatrix {
 		int x = A[0][0];
 		int index = 0;
 		for (int i = 1; i < m; i++) {
-			if (A[i/A.length][i%A.length] > x) {
-				x = A[i/A.length][i%A.length];
+			if (A[i / A.length][i % A.length] > x) {
+				x = A[i / A.length][i % A.length];
 				index = i;
 			}
 		}
@@ -100,44 +110,44 @@ class MyMatrix {
 	// Recursively sort the matrix 
 	// using the selection sort algorithm 
 	public void selectionSort() {
-		selectionSort(size*size);
+		selectionSort(size * size);
 	}
 
 	private void selectionSort(int len) {
-		if(len==1)
+		if (len == 1)
 			return;
 
-		int idx=maxSub(len);
-		int t = A[idx/A.length][idx%A.length];
-		A[idx/A.length][idx%A.length] = A[(len-1)/A.length][(len-1)%A.length];
-		A[(len-1)/A.length][(len-1)%A.length] = t;
+		int idx = maxSub(len);
+		int t = A[idx / A.length][idx % A.length];
+		A[idx / A.length][idx % A.length] = A[(len - 1) / A.length][(len - 1) % A.length];
+		A[(len - 1) / A.length][(len - 1) % A.length] = t;
 
-		selectionSort(len-1);
+		selectionSort(len - 1);
 	}
 
 	// Recursively sort the matrix 
 	// using the insertion sort algorithm 
 	public void insertionSort() {
-		insertionSort(size*size);
+		insertionSort(size * size);
 	}
 
-	private void insertionSort(int len){
+	private void insertionSort(int len) {
 		if (len == 1)
 			return;
 
 		insertionSort(len - 1);       //sort sublist A[0] - A[len-1]
 
 		//insert A[len-1] into sorted list A[0] - A[len-2]
-		int t = A[(len-1)/A.length][(len-1)%A.length];
+		int t = A[(len - 1) / A.length][(len - 1) % A.length];
 		int i;
 		for (i = len - 2; i >= 0; i--) {
-			if (A[i/A.length][i%A.length] <= t)
+			if (A[i / A.length][i % A.length] <= t)
 				break;
 			else
-				A[(i+1)/A.length][(i+1)%A.length] = A[i/A.length][i%A.length];
+				A[(i + 1) / A.length][(i + 1) % A.length] = A[i / A.length][i % A.length];
 		}
 
-		A[(i+1)/A.length][(i+1)%A.length] = t;
+		A[(i + 1) / A.length][(i + 1) % A.length] = t;
 	}
 
 	// Recursively check whether the matrix 
@@ -177,54 +187,123 @@ class MyMatrix {
 		}
 	}
 
-	//helper method to make main function cleaner
-	public int[] returnCoordinates(int x) {
-		int B[] = new int[2];
-		int row = (x / size) + 1;
-		int column = x % size;
-		if (column == 0) {
-			column = size;
-			row--;
-			B[0] = column;
-			B[1] = row;
-			return B;
+	// Recursively search for a key in the matrix
+	// using the binary search algorithm
+	public int binarySearch(int key) {
+		if (!isSortedNonDecreasing()) {
+			System.out.println("Matrix needs to be sorted first");
+			return -1;
 		}
-		B[0] = column++;
-		B[1] = row++;
-		return B;
+		return binarySearch(key, 1, size * size);
+	}
+
+	private int binarySearch(int key, int start, int end) {
+		//base case
+		if (start > end)
+			return -1;
+
+		//general case
+		int mid = (start + end) / 2;
+
+		if (A[mid / A.length][mid % A.length] == key)
+			return mid + 1;
+		else if (A[mid / A.length][mid % A.length] > key)
+			return binarySearch(key, start, mid - 1);
+		else
+			return binarySearch(key, mid + 1, end);
 	}
 }
 
-// Recursively search for a key in the matrix
-// using the binary search algorithm
-//	public int binarySearch(int key) {
-//	}
-
-
 public class Homework08 {
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args) {
-		// TODO code application logic here
+	public static void run() {
+		Scanner in = new Scanner(System.in);
+		MyMatrix matrix = new MyMatrix();
+		while (true) {
+			System.out.println("1. Generate matrix");
+			System.out.println("2. Print matrix");
+			System.out.println("3. Sort");
+			System.out.println("4. Search");
+			System.out.println("0. Quit");
 
-		MyMatrix matrix = new MyMatrix(3);
-//		int x = 1;
-//		while (x <= 10000) {
-//			matrix.randGenerate();
-//			matrix.bubbleSort();
-//			if (!matrix.isSortedNonDecreasing()) {
-//				System.out.println("FAILURE!");
-//				return;
-//			}
-//			x++;
-//		}
-		matrix.randGenerate();
-		int val = matrix.maxSub(9);
-		matrix.print();
-		System.out.println(val);
-		matrix.insertionSort();
-		matrix.print();
+			switch (in.nextInt()) {
+				case 1:
+					System.out.print("Enter the size of the array: ");
+					matrix = new MyMatrix(in.nextInt());
+					matrix.randGenerate();
+					break;
+				case 2:
+					System.out.println("Printing current matrix:");
+					System.out.println("========================");
+					matrix.print();
+					break;
+				case 3:
+					System.out.println("1. Bubble sort");
+					System.out.println("2. Selection sort");
+					System.out.println("3. Insertion sort");
+					System.out.println("0. Back to main menu");
+
+					switch (in.nextInt()) {
+						case 1:
+							System.out.println("Sorting matrix with bubble sort");
+							matrix.bubbleSort();
+							break;
+						case 2:
+							System.out.println("Sorting matrix with selection sort");
+							matrix.selectionSort();
+							break;
+						case 3:
+							System.out.println("Sorting matrix with insertion sort");
+							matrix.insertionSort();
+							break;
+						case 0:
+							System.out.println("Returning to main menu \n");
+							break;
+					}
+					break;
+				case 4:
+					int pos;
+					System.out.println("1. Sequential saerch");
+					System.out.println("2. Binary Search");
+					System.out.println("0. Back to main menu");
+
+					switch (in.nextInt()) {
+						case 1:
+							System.out.print("Enter key to search for: ");
+							pos = matrix.sequentialSearch(in.nextInt());
+							System.out.println("Searching matrix with sequential search");
+							if (pos == -1) {
+								System.out.println("Key not found!");
+							} else {
+								System.out.println("Key found at (" + ((pos / matrix.size) + 1) + "," + ((pos % matrix.size)) + ")");
+							}
+							break;
+						case 2:
+							System.out.print("Enter a key to search for: ");
+							pos = matrix.binarySearch(in.nextInt());
+							System.out.println("Searching matrix with binary search");
+							if (pos == -1) {
+								System.out.println("Key not found!");
+							} else {
+								System.out.println("Key found at (" + ((pos / matrix.size) + 1) + "," + ((pos % matrix.size)) + ")");
+							}
+							break;
+						case 0:
+							System.out.println("Returning to main menu \n");
+							break;
+					}
+					break;
+				case 0:
+					System.out.println("Exiting program");
+					return;
+				default:
+					System.out.println("Invalid selection\n");
+					break;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		run();
 	}
 }
