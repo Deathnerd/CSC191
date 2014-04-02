@@ -1,9 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * ------------------------------
+ *	Course: CSC191
+ *	Project: Lab 11
+ *	Date: 4/2/13
+ *	Author: George Gilleland
+ *	..............................
+ *	Purpose: This program will make use lf a generic class that will take in a one-dimensional
+ * 	array of Comparable data types. The class will have a method to sort the array and print the array
+ *	------------------------------
  */
-
 package lab11;
 
 class GenericClass<E extends Comparable<E>>{
@@ -40,13 +45,14 @@ public class Lab11 {
 		Integer intArr[] = {4, 1, 8, 7, 9, 2, 3};
 		Double doubArr[] = {2.5,3.65,89.65,11.4};
 		String strArr[] = {"career", "computer", "networking", "database", "mobile"};
-		Character charArray[] = {"c", "A", "f", "s", "C", "e"};
+		Character charArray[] = {'c', 'A', 'f', 's', 'C', 'e'};
 		//instantiate classes with different types
 		GenericClass<Integer> integers = new GenericClass<Integer>(intArr);
 		GenericClass<Double> doubles = new GenericClass<Double>(doubArr);
 		GenericClass<String> strings = new GenericClass<String>(strArr);
 		GenericClass<Character> characters = new GenericClass<Character>(charArray);
 		//print unsorted lists
+		System.out.println("\nPrinting unsorted lists...");
 		integers.print();
 		doubles.print();
 		strings.print();
@@ -57,6 +63,7 @@ public class Lab11 {
 		strings.sort();
 		characters.sort();
 		//print sorted lists
+		System.out.println("\nPrinting sorted lists...");
 		integers.print();
 		doubles.print();
 		strings.print();

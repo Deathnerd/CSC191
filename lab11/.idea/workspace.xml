@@ -26,15 +26,16 @@
       <file leaf-file-name="Lab11.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lab11/Lab11.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25331125" vertical-offset="0" max-vertical-offset="1139">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5177665" vertical-offset="0" max-vertical-offset="1326">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <element signature="e#291#292#0" expanded="true" />
-                <element signature="e#311#312#0" expanded="true" />
-                <element signature="e#1177#1186#0" expanded="true" />
-                <element signature="e#1245#1253#0" expanded="true" />
-                <element signature="e#1313#1321#0" expanded="true" />
-                <element signature="e#1386#1397#0" expanded="true" />
+                <element signature="e#0#2021#0" expanded="true" />
+                <element signature="e#492#493#0" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+                <element signature="e#1378#1387#0" expanded="true" />
+                <element signature="e#1446#1454#0" expanded="true" />
+                <element signature="e#1514#1522#0" expanded="true" />
+                <element signature="e#1587#1598#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -363,15 +364,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/lab11/Lab11.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25331125" vertical-offset="0" max-vertical-offset="1139">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5177665" vertical-offset="0" max-vertical-offset="1326">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#291#292#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#1177#1186#0" expanded="true" />
-            <element signature="e#1245#1253#0" expanded="true" />
-            <element signature="e#1313#1321#0" expanded="true" />
-            <element signature="e#1386#1397#0" expanded="true" />
+            <element signature="e#0#2021#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#1378#1387#0" expanded="true" />
+            <element signature="e#1446#1454#0" expanded="true" />
+            <element signature="e#1514#1522#0" expanded="true" />
+            <element signature="e#1587#1598#0" expanded="true" />
           </folding>
         </state>
       </provider>
