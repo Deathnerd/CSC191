@@ -18,6 +18,9 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Homework10" target="" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

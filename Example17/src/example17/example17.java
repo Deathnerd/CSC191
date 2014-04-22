@@ -39,8 +39,7 @@ public class example17 {
 				System.out.println("Key is not found!");
 		}
 
-		LinkedList L2 = new LinkedList(L);
-		L2.traverse();
+		L.traverse();
 	}
 }
 
@@ -142,7 +141,7 @@ class LinkedList {
 		Helper hlp = new Helper(null, head);
 
 		while (hlp.curr != null) {
-			if (k <= hlp.curr.getKey())
+			if (k >= hlp.curr.getKey())
 				break;
 			hlp.moveNext();
 		}

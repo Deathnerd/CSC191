@@ -6,8 +6,8 @@ import java.util.Scanner;
  * Created by Deathnerd on 4/20/2014.
  */
 class Term {
-	private int key;    // key of the node
-	private String data;    // data in the node
+	private int key;    // key of the node. Key is the exponent
+	private String data;    // data in the node. Data is the coefficient
 	private Term next;    // reference to the successor
 
 	Term(int k, String d) {
@@ -20,7 +20,7 @@ class Term {
 		return key;
 	}
 
-	String getData() {
+	String  getData() {
 		return data;
 	}
 
@@ -44,6 +44,7 @@ class Term {
 // a linked list in which nodes are sorted in non-decreasing order of keys
 class Polynomial {
 	private Term head;
+	public int length = 0;
 
 	// Construct an empty linked list
 	Polynomial() {
@@ -57,8 +58,8 @@ class Polynomial {
 		Helper hlpSrc = new Helper(null, src.head);
 		Helper hlp = new Helper();
 
-		while (hlpSrc.curr != null) {
-			Term newTerm = new Term(hlpSrc.curr.getKey(), hlp.curr.getData());
+		while (hlpSrc.current != null) {
+			Term newTerm = new Term(hlpSrc.current.getKey(), hlp.current.getData());
 			hlpSrc.moveNext();
 
 			//if the new node will become the first node
@@ -66,7 +67,7 @@ class Polynomial {
 				hlp.set(null, newTerm);
 				head = newTerm;
 			} else {
-				hlp.curr.setNext(newTerm);
+				hlp.current.setNext(newTerm);
 				hlp.moveNext();
 			}
 		}
@@ -75,7 +76,7 @@ class Polynomial {
 	// Traverse list displaying keys and data
 	void traverse() {
 		Helper hlp = new Helper(null, head);
-		final Term curr = hlp.curr;
+		final Term curr = hlp.current;
 		while (curr != null) {
 			System.out.print(curr.getKey() + " ");
 
@@ -89,7 +90,7 @@ class Polynomial {
 	Helper search(int k) {
 		Helper hlp = new Helper(null, head);//search starts from  left to right
 
-		final Term curr = hlp.curr;
+		final Term curr = hlp.current;
 		while (curr != null) {
 			if (k == curr.getKey())
 				return hlp;    //return the locations of the node and its predecessor
@@ -99,43 +100,52 @@ class Polynomial {
 		return null;
 	}
 
+//	// Insert a node (k, d) into the list at position k
+//	boolean insertAt(int key, String data, int index) {
+//		if(index < 0){
+//			return false;
+//		}
+//		Term newTerm = new Term(key, data);
+//		//if the list is empty
+//		if (index == 0){
+//			newTerm.setNext(head);
+//			head = newTerm;
+//			length++;
+//			return true;
+//		}
+//		Helper help = new Helper(null, head);
+//		//move forward till index is reached
+//		for(int i = 0; i < index; i++) {
+//			help.moveNext();
+//		}
+//
+//		if(help.current != null){
+//			newTerm.setNext(help.current);
+//			help.previous.setNext(newTerm);
+//		} else if(help.previous != null){
+//			help.previous.setNext(newTerm);
+//		} else {}
+//		length++;
+//		return true;
+//	}
+
 	// Insert a node (k, d) into the list
-	void insert(int k, String d) {
+	void  insert(int k, String d) {
 		Helper hlp = new Helper(null, head);
 
-		final Term curr = hlp.curr;
-		while (curr != null) {
-			if (k <= curr.getKey())
+		while (hlp.current != null) {
+			if (k >= hlp.current.getKey())
 				break;
 			hlp.moveNext();
 		}
 
 		Term newTerm = new Term(k, d);
-		final Term prev = hlp.prev;
-		if (prev == null) {    //new node should become the first in the list
+		if (hlp.previous == null) {       //new node should become the first in the list
 			newTerm.setNext(head);
 			head = newTerm;
 		} else {
-			prev.setNext(newTerm);
-			newTerm.setNext(curr);
-		}
-	}
-
-	// Read keys and data from user and build a linked list
-	void build() {
-		Scanner in = new Scanner(System.in);
-		int k;
-		String d;
-
-		while (true) {
-			System.out.print("Enter a key (negative to stop) and data: ");
-			k = in.nextInt();
-			if (k < 0)
-				break;
-
-			d = in.next();
-
-			insert(k, d);
+			hlp.previous.setNext(newTerm);
+			newTerm.setNext(hlp.current);
 		}
 	}
 
@@ -146,8 +156,8 @@ class Polynomial {
 		if (hlp == null)
 			return false;    //failed deletion
 
-		final Term next = hlp.curr.getNext();
-		final Term prev = hlp.prev;
+		final Term next = hlp.current.getNext();
+		final Term prev = hlp.previous;
 		if (prev != null)
 			prev.setNext(next);
 		else
@@ -158,34 +168,84 @@ class Polynomial {
 }
 
 class Helper {
-	Term prev;    //reference to the predecessor
-	Term curr;    //reference to the current Nodes
+	Term previous;    //reference to the predecessor
+	Term current;    //reference to the current Nodes
 
 	Helper() {
 		this(null, null);
 	}
 
 	Helper(Term p, Term c) {
-		prev = p;
-		curr = c;
+		previous = p;
+		current = c;
 	}
 
 	void set(Term p, Term c) {
-		prev = p;
-		curr = c;
+		previous = p;
+		current = c;
 	}
 
 	void moveNext() {
-		if (curr != null) {
-			prev = curr;
-			curr = curr.getNext();    //curr = curr.getNext();
+		if (current != null) {
+			previous = current;
+			current = current.getNext();    //current = current.getNext();
 		}
 	}
 }
 
 
 public class homework10 {
-	public static void main(String args[]) {
-
+	public static boolean isNumber(char c){
+		return c >= '0' && c <= '9';
+	}
+	public static boolean isCaret(char c){
+		return c == '^';
+	}
+	public static boolean isOperator(char c){
+		return c == '-' || c == '+';
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Polynomial polynomial = new Polynomial();
+		String s = "-33x^3+243x^41+3x^789";
+		System.out.println(s.length());
+		System.out.println(s.charAt(0));
+		int sum = 0;
+		String coefficient = "";
+		boolean exponentExists = false;
+		int exponent = 0;
+		for(int i = 0; i < s.length(); i++){
+			if(isOperator(s.charAt(i))){
+				int j = 0;
+				String number = ""+s.charAt(i);
+				for(j = i+1; isNumber(s.charAt(j)) && j < s.length(); j++){
+					number += ""+s.charAt(j);
+				}
+				System.out.println("Coefficient = "+number);
+//				coefficient = Integer.parseInt(number);
+				coefficient = number;
+				i = j-1;
+			}
+			if(isCaret(s.charAt(i))){
+				int j = 0;
+				String number = "";
+				for(j = i+1; j < s.length() && isNumber(s.charAt(j)); j++){
+					number += ""+s.charAt(j);
+				}
+				System.out.println("Exponent =  " + number );
+				exponent = Integer.parseInt(number);
+				i=j-1;
+				exponentExists = true;
+			}
+			//if there's an exponent and a coefficient that's non-zero, insert into the list at key = exponent
+			if(exponentExists && Integer.parseInt(coefficient) != 0){
+//				if(!polynomial.insert(exponent, coefficient)) {
+//					System.out.println("Insertion failed");
+//				}
+				polynomial.insert(exponent, coefficient);
+				exponentExists = false;
+			}
+		}
+		polynomial.traverse();
 	}
 }
