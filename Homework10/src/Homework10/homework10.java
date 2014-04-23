@@ -1,7 +1,5 @@
 package Homework10;
 
-import java.util.Scanner;
-
 /**
  * Created by Deathnerd on 4/20/2014.
  */
@@ -20,7 +18,7 @@ class Term {
 		return key;
 	}
 
-	String  getData() {
+	String getData() {
 		return data;
 	}
 
@@ -75,12 +73,12 @@ class Polynomial {
 
 	// Traverse list displaying keys and data
 	void traverse() {
-		Helper hlp = new Helper(null, head);
-		final Term curr = hlp.current;
-		while (curr != null) {
-			System.out.print(curr.getKey() + " ");
-
-			hlp.moveNext();
+		Helper helper = new Helper(null, head);
+		Term current = helper.current;
+		while (current != null) {
+			System.out.print(current.getKey() + " ");
+			helper.moveNext();
+			current = helper.current;
 		}
 		System.out.println();
 	}
@@ -90,7 +88,7 @@ class Polynomial {
 	Helper search(int k) {
 		Helper hlp = new Helper(null, head);//search starts from  left to right
 
-		final Term curr = hlp.current;
+		Term curr = hlp.current;
 		while (curr != null) {
 			if (k == curr.getKey())
 				return hlp;    //return the locations of the node and its predecessor
@@ -130,7 +128,7 @@ class Polynomial {
 //	}
 
 	// Insert a node (k, d) into the list
-	void  insert(int k, String d) {
+	void insert(int k, String d) {
 		Helper hlp = new Helper(null, head);
 
 		while (hlp.current != null) {
@@ -195,50 +193,52 @@ class Helper {
 
 
 public class homework10 {
-	public static boolean isNumber(char c){
+	public static boolean isNumber(char c) {
 		return c >= '0' && c <= '9';
 	}
-	public static boolean isCaret(char c){
+
+	public static boolean isCaret(char c) {
 		return c == '^';
 	}
-	public static boolean isOperator(char c){
+
+	public static boolean isOperator(char c) {
 		return c == '-' || c == '+';
 	}
-	public static void main (String[] args) throws java.lang.Exception
-	{
+
+	public static void main(String[] args) throws java.lang.Exception {
 		Polynomial polynomial = new Polynomial();
 		String s = "-33x^3+243x^41+3x^789";
+//		String s = "-33x^3";
 		System.out.println(s.length());
 		System.out.println(s.charAt(0));
 		int sum = 0;
 		String coefficient = "";
 		boolean exponentExists = false;
 		int exponent = 0;
-		for(int i = 0; i < s.length(); i++){
-			if(isOperator(s.charAt(i))){
+		for (int i = 0; i < s.length(); i++) {
+			if (isOperator(s.charAt(i))) {
 				int j = 0;
-				String number = ""+s.charAt(i);
-				for(j = i+1; isNumber(s.charAt(j)) && j < s.length(); j++){
-					number += ""+s.charAt(j);
+				String number = "" + s.charAt(i);
+				for (j = i + 1; isNumber(s.charAt(j)) && j < s.length(); j++) {
+					number += "" + s.charAt(j);
 				}
-				System.out.println("Coefficient = "+number);
-//				coefficient = Integer.parseInt(number);
+				System.out.println("Coefficient = " + number);
 				coefficient = number;
-				i = j-1;
+				i = j - 1;
 			}
-			if(isCaret(s.charAt(i))){
+			if (isCaret(s.charAt(i))) {
 				int j = 0;
 				String number = "";
-				for(j = i+1; j < s.length() && isNumber(s.charAt(j)); j++){
-					number += ""+s.charAt(j);
+				for (j = i + 1; j < s.length() && isNumber(s.charAt(j)); j++) {
+					number += "" + s.charAt(j);
 				}
-				System.out.println("Exponent =  " + number );
+				System.out.println("Exponent =  " + number);
 				exponent = Integer.parseInt(number);
-				i=j-1;
+				i = j - 1;
 				exponentExists = true;
 			}
 			//if there's an exponent and a coefficient that's non-zero, insert into the list at key = exponent
-			if(exponentExists && Integer.parseInt(coefficient) != 0){
+			if (exponentExists && Integer.parseInt(coefficient) != 0) {
 //				if(!polynomial.insert(exponent, coefficient)) {
 //					System.out.println("Insertion failed");
 //				}
