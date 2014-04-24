@@ -443,41 +443,6 @@ public class homework10 {
 	}
 
 	public static void main(String[] args) throws Exception {
-		/*Polynomial polynomial = new Polynomial();
-		String coefficient = "";
-		String s = "-60x^13-11x^10+9x^6-5x^1+7x^0";
-		boolean exponentExists = false;
-		int exponent = 0;
-		for (int i = 0; i < s.length(); i++) {
-			if (Checks.isOperator(s.charAt(i))) {
-				int j = 0;
-				String number = "" + s.charAt(i);
-				for (j = i + 1; Checks.isNumber(s.charAt(j)) && j < s.length(); j++) {
-					number += "" + s.charAt(j);
-				}
-				System.out.println("Coefficient = " + number);
-				coefficient = number;
-				i = j - 1;
-			}
-			if (Checks.isCaret(s.charAt(i))) {
-				int j = 0;
-				String number = "";
-				for (j = i + 1; j < s.length() && Checks.isNumber(s.charAt(j)); j++) {
-					number += "" + s.charAt(j);
-				}
-				System.out.println("Exponent =  " + number);
-				exponent = Integer.parseInt(number);
-				i = j - 1;
-				exponentExists = true;
-			}
-			//if there's an exponent and a coefficient that's non-zero, insert into the list at key = exponent
-			if (exponentExists && Integer.parseInt(coefficient) != 0) {
-				polynomial.insert(exponent, coefficient);
-				exponentExists = false;
-			}
-		}
-		polynomial.traverse();
-		polynomial.print();*/
 		run();
 	}
 }
