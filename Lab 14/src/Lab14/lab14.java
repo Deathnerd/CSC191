@@ -15,7 +15,7 @@ class DrawPanel extends JPanel {
 
 	DrawPanel() {
 		super();
-		option = 0;
+		option = 5;
 		num = 0;
 		drawColor = Color.BLACK;
 	}
@@ -30,21 +30,23 @@ class DrawPanel extends JPanel {
 
 		switch (option) {
 			case 0:
+				int stepVertical;
+				int stepHorizontal;
 				for (int i = 1; i <= num; i++) {
-					int stepVertical = i*(height/num);
-					int stepHorizontal = i*(width/num);
-					graphics.drawLine(0, stepVertical, stepHorizontal, height);
-					graphics.drawLine(stepHorizontal, height, width, height-stepVertical);
-					graphics.drawLine(width, height-stepVertical,width-stepHorizontal,0);
-					graphics.drawLine(width-stepHorizontal, 0, 0, stepVertical);
+						stepVertical = i * (height / num);
+						stepHorizontal = i * (width / num);
+						graphics.drawLine(0, stepVertical, stepHorizontal, height);
+						graphics.drawLine(stepHorizontal, height, width, height - stepVertical);
+						graphics.drawLine(width, height - stepVertical, width - stepHorizontal, 0);
+						graphics.drawLine(width - stepHorizontal, 0, 0, stepVertical);
 				}
 				break;
 			case 1:
 				int circleWidth = 10;
 				int step = 0;
-				for(int i = 1; i <= num; i++){
+				for (int i = 1; i <= num; i++) {
 					step += circleWidth;
-					graphics.drawOval(width/2-step, height/2-step, circleWidth*(i*2), circleWidth*(i*2));
+					graphics.drawOval(width / 2 - step, height / 2 - step, circleWidth * (i * 2), circleWidth * (i * 2));
 				}
 		}
 	}
@@ -64,7 +66,7 @@ public class lab14 extends JFrame implements ActionListener {
 	private int option;
 
 	lab14() {
-		setLayout(new BorderLayout(30,0));
+		setLayout(new BorderLayout(30, 0));
 
 		//make selection buttons and set their text
 		selectionButtons = new JButton[2];
