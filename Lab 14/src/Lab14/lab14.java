@@ -33,12 +33,12 @@ class DrawPanel extends JPanel {
 				int stepVertical;
 				int stepHorizontal;
 				for (int i = 1; i <= num; i++) {
-						stepVertical = i * (height / num);
-						stepHorizontal = i * (width / num);
-						graphics.drawLine(0, stepVertical, stepHorizontal, height);
-						graphics.drawLine(stepHorizontal, height, width, height - stepVertical);
-						graphics.drawLine(width, height - stepVertical, width - stepHorizontal, 0);
-						graphics.drawLine(width - stepHorizontal, 0, 0, stepVertical);
+						stepVertical = (height / num);
+						stepHorizontal = (width / num);
+						graphics.drawLine(0, stepVertical * (i-1), stepHorizontal*i, height);
+						graphics.drawLine(stepHorizontal * (i-1), height, width, height - stepVertical*i);
+						graphics.drawLine(width, height - (stepVertical*i), width - (stepHorizontal*i), 0);
+						graphics.drawLine(width - (stepHorizontal*i), 0, 0, stepVertical*i);
 				}
 				break;
 			case 1:
@@ -50,7 +50,6 @@ class DrawPanel extends JPanel {
 				}
 		}
 	}
-
 }
 
 public class lab14 extends JFrame implements ActionListener {
