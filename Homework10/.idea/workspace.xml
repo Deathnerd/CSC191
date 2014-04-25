@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fe24f1cd-7b96-461d-b15a-48cecb0d8732" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Homework10/homework10.java" afterPath="$PROJECT_DIR$/src/Homework10/homework10.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Example20/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Example20/.idea/workspace.xml" />
     </list>
     <ignored path="Homework10.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +29,14 @@
       <file leaf-file-name="homework10.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Homework10/homework10.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.5460525" vertical-offset="2484" max-vertical-offset="7776">
-              <caret line="441" column="9" selection-start-line="441" selection-start-column="9" selection-end-line="441" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.9413629" vertical-offset="4878" max-vertical-offset="6570">
+              <caret line="357" column="47" selection-start-line="357" selection-start-column="47" selection-end-line="357" selection-end-column="47" />
               <folding>
-                <element signature="e#11994#11995#0" expanded="true" />
-                <element signature="e#12006#12007#0" expanded="true" />
+                <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+                <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+                <element signature="method#set#0;class#Helper#0" expanded="false" />
+                <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+                <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,10 +60,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="992" />
-    <option name="y" value="52" />
-    <option name="width" value="917" />
-    <option name="height" value="1028" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -69,13 +73,76 @@
             <id />
           </State>
           <State>
-            <id>Android</id>
+            <id>Abstraction issues</id>
           </State>
           <State>
             <id>Android Lint</id>
           </State>
           <State>
-            <id>Java language level migration aids</id>
+            <id>Class structure</id>
+          </State>
+          <State>
+            <id>Code style issues</id>
+          </State>
+          <State>
+            <id>Control flow issues</id>
+          </State>
+          <State>
+            <id>Data flow issues</id>
+          </State>
+          <State>
+            <id>Declaration redundancy</id>
+          </State>
+          <State>
+            <id>Encapsulation issues</id>
+          </State>
+          <State>
+            <id>Error handling</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>Imports</id>
+          </State>
+          <State>
+            <id>Manifest</id>
+          </State>
+          <State>
+            <id>Naming conventions</id>
+          </State>
+          <State>
+            <id>Numeric issues</id>
+          </State>
+          <State>
+            <id>Performance issues</id>
+          </State>
+          <State>
+            <id>Portability issues</id>
+          </State>
+          <State>
+            <id>Probable bugs</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+          <State>
+            <id>Threading issues</id>
+          </State>
+          <State>
+            <id>Threading issuesGroovy</id>
+          </State>
+          <State>
+            <id>UI Form Problems</id>
+          </State>
+          <State>
+            <id>Visibility issues</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XPath</id>
           </State>
         </expanded-state>
         <selected-state>
@@ -123,7 +190,7 @@
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab 14" />
-    <property name="options.lastSelected" value="Errors" />
+    <property name="options.lastSelected" value="fileTemplates" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -191,19 +258,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -229,6 +283,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -311,7 +378,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="992" y="52" width="917" height="1028" extended-state="4" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -319,22 +386,22 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39877924" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3865717" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24919094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32756868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -357,7 +424,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Homework10/homework10.java</url>
+          <line>137</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Homework10/homework10.java</url>
+          <line>276</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -367,11 +448,28 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Homework10/homework10.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2484" max-vertical-offset="7776">
+          <caret line="441" column="9" selection-start-line="441" selection-start-column="9" selection-end-line="441" selection-end-column="9" />
+          <folding>
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Homework10/homework10.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8406">
           <caret line="353" column="40" selection-start-line="353" selection-start-column="40" selection-end-line="353" selection-end-column="40" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -381,8 +479,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1872" max-vertical-offset="4230">
           <caret line="140" column="82" selection-start-line="140" selection-start-column="82" selection-end-line="140" selection-end-column="82" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -392,8 +493,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4230">
           <caret line="140" column="82" selection-start-line="140" selection-start-column="82" selection-end-line="140" selection-end-column="82" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -403,8 +507,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4230">
           <caret line="140" column="82" selection-start-line="140" selection-start-column="82" selection-end-line="140" selection-end-column="82" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -414,8 +521,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1872" max-vertical-offset="4230">
           <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -425,8 +535,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4212">
           <caret line="216" column="44" selection-start-line="216" selection-start-column="44" selection-end-line="216" selection-end-column="44" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -436,8 +549,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1803" max-vertical-offset="4338">
           <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -447,8 +563,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="3258">
           <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -458,8 +577,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3294">
           <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -469,8 +591,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="3264">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -484,11 +609,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Homework10/homework10.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.5460525" vertical-offset="2484" max-vertical-offset="7776">
-          <caret line="441" column="9" selection-start-line="441" selection-start-column="9" selection-end-line="441" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.9413629" vertical-offset="4878" max-vertical-offset="6570">
+          <caret line="357" column="47" selection-start-line="357" selection-start-column="47" selection-end-line="357" selection-end-column="47" />
           <folding>
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12006#12007#0" expanded="true" />
+            <element signature="method#search#0;class#Polynomial#0" expanded="false" />
+            <element signature="method#Helper#1;class#Helper#0" expanded="false" />
+            <element signature="method#set#0;class#Helper#0" expanded="false" />
+            <element signature="method#moveNext#0;class#Helper#0" expanded="false" />
+            <element signature="method#printMenu#0;class#homework10#0" expanded="false" />
           </folding>
         </state>
       </provider>

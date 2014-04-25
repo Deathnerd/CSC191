@@ -66,40 +66,6 @@ class Polynomial {
 		head = null;
 	}
 
-	// Construct a list and copy the content of nodes from another list src
-	Polynomial(Polynomial src) {
-		head = null;    //start with an empty list
-
-		Helper hlpSrc = new Helper(null, src.head);
-		Helper hlp = new Helper();
-
-		while (hlpSrc.current != null) {
-			Term newTerm = new Term(hlpSrc.current.getKey(), hlp.current.getData());
-			hlpSrc.moveNext();
-
-			//if the new node will become the first node
-			if (head == null) {
-				hlp.set(null, newTerm);
-				head = newTerm;
-			} else {
-				hlp.current.setNext(newTerm);
-				hlp.moveNext();
-			}
-		}
-	}
-
-	// Traverse list displaying keys and data
-	void traverse() {
-		Helper helper = new Helper(null, head);
-		Term current = helper.current;
-		while (current != null) {
-			System.out.print(current.getKey() + " ");
-			helper.moveNext();
-			current = helper.current;
-		}
-		System.out.println();
-	}
-
 	//print out the polynomial
 	void print() {
 		Helper helper = new Helper(null, head);
@@ -136,16 +102,19 @@ class Polynomial {
 		while (helper.current != null) {
 			if (k >= helper.current.getKey())
 				break;
+
 			helper.moveNext();
 		}
 
 		Term newTerm = new Term(k, d);
-		if(helper.current != null && helper.current.getKey() == k){
+		if (helper.current != null && helper.current.getKey() == k) {
 			helper.current.setKey(k);
 			helper.current.setData(d);
+
 		} else if (helper.previous == null) {       //new node should become the first in the list
 			newTerm.setNext(head);
 			head = newTerm;
+
 		} else {
 			helper.previous.setNext(newTerm);
 			newTerm.setNext(helper.current);
@@ -161,36 +130,28 @@ class Polynomial {
 		while (helper.current != null) {
 			if (exponent >= helper.current.getKey())
 				break;
+
 			helper.moveNext();
 		}
 
 		//do the operation on the corresponding exponent or insert
-		if (helper.current == null || helper.previous == null) {
+		if (helper.previous == null){
+			head = new Term(exponent, coefficient);
+			if(!Checks.isOperator(head.getData().charAt(0))){
+				head.setData("+" + head.getData());
+			}
+			head.setNext(helper.current);
+			return true;
+		} else if (helper.current == null/* || helper.previous == null*/) {	//add to the end
 			//if reached the end of the list, insert it
 			insert(exponent, coefficient);
 			return true;
-		} else if (helper.previous.getKey() == exponent) {
-			int previousCoefficient = Integer.parseInt(helper.previous.getData());
-			int currentCoefficient = Integer.parseInt(coefficient);
-			String newCoefficient = String.valueOf(previousCoefficient + currentCoefficient);
 
-			//if the current coefficient is 0, remove it from the linked list
-			if (Integer.parseInt(newCoefficient) == 0) {
-				delete(helper.previous.getKey());
-				return true;
-			}
-
-			//check if positive. Need that sign
-			if (!Checks.isOperator(newCoefficient.charAt(0))) {
-				newCoefficient = "+" + newCoefficient;
-			}
-			//update the previous data
-			helper.previous.setData(newCoefficient);
-			return true;
-		} else if (helper.current.getKey() == exponent) {
+		} else if (helper.current.getKey() == exponent) { //if exponents are equal
 			int previousCoefficient = Integer.parseInt(helper.current.getData());
 			int currentCoefficient = Integer.parseInt(coefficient);
 			String newCoefficient = String.valueOf(previousCoefficient + currentCoefficient);
+
 			//if the current coefficient is 0, remove it from the linked list
 			if (Integer.parseInt(newCoefficient) == 0) {
 				delete(helper.current.getKey());
@@ -204,8 +165,11 @@ class Polynomial {
 			//update the previous data
 			helper.current.setData(newCoefficient);
 			return true;
+
+		} else { //insert between two terms
+			insert(exponent, coefficient);
+			return true;
 		}
-		return false;
 	}
 
 	//does polynomial subtraction
@@ -216,36 +180,28 @@ class Polynomial {
 		while (helper.current != null) {
 			if (exponent >= helper.current.getKey())
 				break;
+
 			helper.moveNext();
 		}
 
 		//do the operation on the corresponding exponent or insert
-		if (helper.current == null || helper.previous == null) {
+		if (helper.previous == null){
+			head = new Term(exponent, "" + Integer.parseInt(coefficient)*-1);
+			if(!Checks.isOperator(head.getData().charAt(0))){
+				head.setData("+" + head.getData());
+			}
+			head.setNext(helper.current);
+			return true;
+		} else if (helper.current == null/* || helper.previous == null*/) {	//add to the end
 			//if reached the end of the list, insert it
-			insert(exponent, coefficient);
+			insert(exponent,"" + (Integer.parseInt(coefficient)*-1));
 			return true;
-		} else if (helper.previous.getKey() == exponent) {
-			int previousCoefficient = Integer.parseInt(helper.previous.getData());
-			int currentCoefficient = Integer.parseInt(coefficient);
-			String newCoefficient = String.valueOf(previousCoefficient - currentCoefficient);
 
-			//if the current coefficient is 0, remove it from the linked list
-			if (Integer.parseInt(newCoefficient) == 0) {
-				delete(helper.previous.getKey());
-				return true;
-			}
-
-			//check if positive. Need that sign
-			if (!Checks.isOperator(newCoefficient.charAt(0))) {
-				newCoefficient = "+" + newCoefficient;
-			}
-			//update the previous data
-			helper.previous.setData(newCoefficient);
-			return true;
-		} else if (helper.current.getKey() == exponent) {
+		} else if (helper.current.getKey() == exponent) { //if exponents are equal
 			int previousCoefficient = Integer.parseInt(helper.current.getData());
 			int currentCoefficient = Integer.parseInt(coefficient);
 			String newCoefficient = String.valueOf(previousCoefficient - currentCoefficient);
+
 			//if the current coefficient is 0, remove it from the linked list
 			if (Integer.parseInt(newCoefficient) == 0) {
 				delete(helper.current.getKey());
@@ -259,8 +215,13 @@ class Polynomial {
 			//update the previous data
 			helper.current.setData(newCoefficient);
 			return true;
+
+		} else { //insert between two terms
+			coefficient = "" + (Integer.parseInt(coefficient) * -1);
+			insert(exponent, coefficient);
+			return true;
 		}
-		return false;
+		//return false;
 	}
 
 	// Delete the first node whose key is k from the list
@@ -272,8 +233,10 @@ class Polynomial {
 
 		final Term next = hlp.current.getNext();
 		final Term prev = hlp.previous;
+
 		if (prev != null)
 			prev.setNext(next);
+
 		else
 			head = next;
 
@@ -325,7 +288,7 @@ public class homework10 {
 		Polynomial polynomial = new Polynomial();
 		Scanner in = new Scanner(System.in);
 		String coefficient = "";
-		String s = "";
+		String s;
 		boolean exponentExists = false;
 		int exponent = 0;
 
@@ -341,7 +304,7 @@ public class homework10 {
 					s = in.next();
 					for (int i = 0; i < s.length(); i++) {
 						if (Checks.isOperator(s.charAt(i))) {
-							int j = 0;
+							int j;
 							String number = "" + s.charAt(i);
 							for (j = i + 1; j < s.length() && Checks.isNumber(s.charAt(j)); j++) {
 								number += "" + s.charAt(j);
@@ -349,6 +312,7 @@ public class homework10 {
 							coefficient = number;
 							i = j - 1;
 						}
+
 						if (Checks.isCaret(s.charAt(i))) {
 							int j = 0;
 							String number = "";
@@ -368,7 +332,7 @@ public class homework10 {
 					break;
 				case 2:
 					//print the polynomial
-					if(polynomial.length == 0){
+					if (polynomial.length == 0) {
 						System.out.println("No polynomial defined, please enter one\n");
 						break;
 					}
@@ -380,7 +344,7 @@ public class homework10 {
 					s = in.next();
 					for (int i = 0; i < s.length(); i++) {
 						if (Checks.isOperator(s.charAt(i))) {
-							int j = 0;
+							int j;
 							String number = "" + s.charAt(i);
 							for (j = i + 1; j < s.length() && Checks.isNumber(s.charAt(j)); j++) {
 								number += "" + s.charAt(j);
@@ -388,8 +352,9 @@ public class homework10 {
 							coefficient = number;
 							i = j - 1;
 						}
+
 						if (Checks.isCaret(s.charAt(i))) {
-							int j = 0;
+							int j;
 							String number = "";
 							for (j = i + 1; j < s.length() && Checks.isNumber(s.charAt(j)); j++) {
 								number += "" + s.charAt(j);
@@ -410,7 +375,7 @@ public class homework10 {
 					s = in.next();
 					for (int i = 0; i < s.length(); i++) {
 						if (Checks.isOperator(s.charAt(i))) {
-							int j = 0;
+							int j;
 							String number = "" + s.charAt(i);
 							for (j = i + 1; j < s.length() && Checks.isNumber(s.charAt(j)); j++) {
 								number += "" + s.charAt(j);
@@ -418,8 +383,9 @@ public class homework10 {
 							coefficient = number;
 							i = j - 1;
 						}
+
 						if (Checks.isCaret(s.charAt(i))) {
-							int j = 0;
+							int j;
 							String number = "";
 							for (j = i + 1; j < s.length() && Checks.isNumber(s.charAt(j)); j++) {
 								number += "" + s.charAt(j);
