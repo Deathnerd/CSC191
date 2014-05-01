@@ -62,7 +62,7 @@ public class lab14 extends JFrame implements ActionListener {
 
 	DrawPanel drawPanel;
 
-	private int option;
+	int option;
 
 	lab14() {
 		setLayout(new BorderLayout(30, 0));
